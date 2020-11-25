@@ -1,0 +1,38 @@
+/**
+ * @Project_Name 32_Ex3_Uoc Chung va Boi Chung
+ * @author Hoang Anh
+ * @date 25 thg 11, 2020
+ * @version 1.0
+ */
+package com.luvina.uocchungvaboichung.tinhtoan;
+
+public class Caculation {
+	private int num1;
+	private int num2;
+	
+	public Caculation() {
+		this.num1 = 0;
+		this.num2 = 0;
+	}
+	
+	public Caculation (int num1, int num2) {
+		this.num1 = num1;
+		this.num2 = num2;
+	}
+	
+	public int timUCLN() {
+		int max  = (num1 <= num2) ? num2 : num1;
+		int UCLN = 1;
+		for(int i = 1; i <= max; i++) {
+			if((num1 % i == 0) && (num2 % i == 0)) {
+				UCLN *= i;
+			}
+		}
+		return UCLN;
+	}
+	
+	public int  timBCNN() {
+		
+	}
+	
+}

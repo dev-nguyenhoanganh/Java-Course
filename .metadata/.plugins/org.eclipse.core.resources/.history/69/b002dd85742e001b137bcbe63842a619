@@ -1,0 +1,36 @@
+/**
+ * @Project_Name 32_Ex2_Cac Phep Toan Ve So
+ * @author Hoang Anh
+ * @date 24 thg 11, 2020
+ * @version 1.0
+ */
+package com.luvina.cacpheptoan.pheptoan;
+
+public class PrimeNumber {
+	
+	public void phanTichThuaSo(int number) {
+		String factor = "";
+		boolean isFirstNumber = true;
+		int tempNumber = number;
+		for (int i = 2; i < Math.sqrt(number); i++) {
+			if(number % i == 0) {
+				if(isFirstNumber) {
+					isFirstNumber = false;
+					factor += i;
+				}
+				tempNumber = number / i;
+				factor += " * " + i; 
+			}
+		}
+	}
+	
+	public boolean isPrimeNumber(int number) {
+		if(number < 2) return false;
+		for(int i = 2; i < number; i++) {
+			if(number % i == 0) return false;
+		}
+		return true;
+	}
+	
+	
+}

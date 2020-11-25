@@ -1,0 +1,24 @@
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="com.luvina.ptb1.ptb1.PhuongTrinhBac1"><rhs name\="com.luvina.ptb1.ptb1.PhuongTrinhBac1"/></lhs><lhs name\="com.luvina.sortnative.sortnative.SortNative"><rhs name\="com.luvina.sortnative.sortnative.SortNative"/></lhs><lhs name\="com.luvina.triangle.triangle.Triangle"><rhs name\="com.luvina.triangle.triangle.Triangle"/></lhs><lhs name\="com.luvina.cacpheptoan.pheptoan.PrimeNumber"><rhs name\="com.luvina.cacpheptoan.pheptoan.PrimeNumber"/></lhs><lhs name\="com.luvina.uocchungvaboichung.tinhtoan.Caculation"><rhs name\="com.luvina.uocchungvaboichung.tinhtoan.Caculation"/></lhs><lhs name\="com.luvina.smartfinder.smartfinder.SmartFinder"><rhs name\="com.luvina.smartfinder.smartfinder.SmartFinder"/></lhs></history>
+content_assist_number_of_computers=14
+content_assist_proposals_background=255,255,255
+content_assist_proposals_foreground=0,0,0
+eclipse.preferences.version=1
+org.eclipse.jdt.ui.exception.name=e
+org.eclipse.jdt.ui.formatterprofiles.version=20
+org.eclipse.jdt.ui.gettersetter.use.is=true
+org.eclipse.jdt.ui.javadoc=true
+org.eclipse.jdt.ui.overrideannotation=true
+org.eclipse.jdt.ui.text.custom_code_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates><template autoinsert\="false" context\="filecomment_context" deleted\="false" description\="Comment for created Java files" enabled\="true" id\="org.eclipse.jdt.ui.text.codetemplates.filecomment" name\="filecomment">/**\r\n * @Project_Name ${project_name}\r\n * @author ${user}\r\n * @date ${date}\r\n * @version 1.0\r\n */</template><template autoinsert\="false" context\="typecomment_context" deleted\="false" description\="Comment for created types" enabled\="true" id\="org.eclipse.jdt.ui.text.codetemplates.typecomment" name\="typecomment"/></templates>
+spelling_ignore_ampersand_in_properties=true
+spelling_ignore_digits=true
+spelling_ignore_java_strings=true
+spelling_ignore_mixed=true
+spelling_ignore_non_letters=true
+spelling_ignore_sentence=true
+spelling_ignore_single_letters=true
+spelling_ignore_upper=true
+spelling_ignore_urls=true
+spelling_locale_initialized=true
+spelling_user_dictionary_encoding=
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

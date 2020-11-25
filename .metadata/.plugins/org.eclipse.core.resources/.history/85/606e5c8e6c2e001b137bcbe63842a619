@@ -1,0 +1,93 @@
+/**
+ * @Project_Name 32_Ex1_Utils Program
+ * @author Hoang Anh
+ * @date 24 thg 11, 2020
+ * @version 1.0
+ */
+package com.luvina.utils.utils;
+
+public class Utils {
+	private int number;
+	
+	/**
+	 * 
+	 */
+	public Utils() {
+		this.number = 0;
+	}
+	
+	/**
+	 * 
+	 * @param number
+	 */
+	public Utils(int number) {
+		this.number = number;
+	}
+	
+	/**
+	 * 
+	 * @param number
+	 * @return
+	 */
+	public boolean isPrimeNumber(int number) {
+		if(number < 2) return false;
+		for(int i = 0; i < Math.sqrt(number); i++) {
+			if(number % i == 0) return false;
+		}
+		return true;
+	}
+	
+	/**
+	 * 
+	 * @param number
+	 */
+	public void listPrimeLessThanNumber(int number) {
+		String listNumber = "[2";
+		for(int i = 3; i < number; i++) {
+			if(isPrimeNumber(i)) {
+				listNumber += ", " + i;
+			}
+		}
+		System.out.println("Các số nguyên tố nhỏ hơn " + number + " là: " + listNumber + "]");
+	}
+	
+	public void listSquareEdge(int number) {
+		String listSquareEdge = "";
+		boolean isFirstNumber = true;
+		for(int i = 10; i < number; i++) {
+			if((100 <= i*i) && (i*i <= 200)) {
+				if(isFirstNumber) {
+					listSquareEdge = "[" + i;
+				}
+				listSquareEdge += ", " + i;
+				continue;
+			}
+			if(i*i > 200) break;
+		}
+		System.out.println("Danh sách các số nhỏ hơn" + number + "thỏa mãn điều kiện: " + listSquareEdge);
+	}
+	
+	
+	
+	public boolean isTriangle(int a, int b, int c) {
+		if(a < 0 || b < 0 || c < 0) return false;
+		else {
+			if((a > b + c) && (b > c + a) && (c > a + b)) return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * @return the number
+	 */
+	public int getNumber() {
+		return number;
+	}
+
+	/**
+	 * @param number the number to set
+	 */
+	public void setNumber(int number) {
+		this.number = number;
+	}
+}

@@ -1,0 +1,2 @@
+INDEX VERSION 1.131+D:\Java Programing Language\BTVN Project\.metadata\.plugins\org.eclipse.jdt.core
+3429684066.index

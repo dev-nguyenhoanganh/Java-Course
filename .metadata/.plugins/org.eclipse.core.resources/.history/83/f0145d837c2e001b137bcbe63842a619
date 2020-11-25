@@ -1,0 +1,19 @@
+/**
+ * @Project_Name 32_Ex4_Smart Finder
+ * @author Hoang Anh
+ * @date 25 thg 11, 2020
+ * @version 1.0
+ */
+package com.luvina.smartfinder.main;
+
+public class Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
