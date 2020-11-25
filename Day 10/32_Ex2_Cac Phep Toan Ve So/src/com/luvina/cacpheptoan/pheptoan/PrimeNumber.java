@@ -56,8 +56,8 @@ public class PrimeNumber {
 	 * Phương thức in ra console kết quả xem thuộc tính <b>number</b>
 	 * có phải số nguyên tố hay không
 	 */
-	public void kiemTraSNT() {
-		if(isPrimeNumber(number)) {
+	public void display() {
+		if(kiemTraSNT(number)) {
 			System.out.println(this.number + " là số nguyên tố.");
 		}
 		else
@@ -71,7 +71,7 @@ public class PrimeNumber {
 	 * @return <ul><li>true - Là số nguyên tố</li>
 	 * <li>false - Không phải số nguyên tố</li></ul>
 	 */
-	private boolean isPrimeNumber(int number) {
+	private boolean kiemTraSNT(int number) {
 		if(number < 2) return false;
 		for(int i = 2; i < number; i++) {
 			if(number % i == 0) return false;

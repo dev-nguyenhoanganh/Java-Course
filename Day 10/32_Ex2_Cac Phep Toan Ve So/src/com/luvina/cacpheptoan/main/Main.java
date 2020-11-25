@@ -15,7 +15,7 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		PrimeNumber number = new PrimeNumber(14);
-		number.kiemTraSNT();
+		number.display();
 		number.phanTichThuaSo();
 	}
 
