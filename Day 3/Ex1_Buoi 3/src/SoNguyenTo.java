@@ -39,7 +39,7 @@ public class SoNguyenTo {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		SoNguyenTo number = new SoNguyenTo();
+		// SoNguyenTo number = new SoNguyenTo();
 		getValue();
 		displayAnswer(kiemTra());
 	} 

@@ -26,8 +26,7 @@ public class DateOfMonth {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		DateOfMonth day = new DateOfMonth();
+		// DateOfMonth day = new DateOfMonth();
 		getMonthAndYear();
 		caculate();
 		display();

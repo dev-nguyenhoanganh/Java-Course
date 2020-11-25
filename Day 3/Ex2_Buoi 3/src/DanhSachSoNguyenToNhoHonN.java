@@ -11,7 +11,6 @@ public class DanhSachSoNguyenToNhoHonN {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		DanhSachSoNguyenToNhoHonN danhSach = new DanhSachSoNguyenToNhoHonN();
 		
 		getValue_N();
