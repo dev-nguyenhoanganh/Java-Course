@@ -5,7 +5,7 @@ Xây dựng đối tượng gồm có một huộc tính là số N và có các
 
     Lưu ý phải từ 2 chữ số trở lên. Ví dụ về các số đối xứng
     ```
-        1221     121     12321     112233
+        1221     121     12321     332233
     ``` 
 - **findLargeArea()** : Là phương thức tìm và in ra các cặp số tự nhiên `(a,b)` từ 1 đến N thỏa mãn [[2]](#Phương-thức-2)
     + Tổng của `a + b < 50`
@@ -17,19 +17,19 @@ Xây dựng đối tượng gồm có một huộc tính là số N và có các
 
 # Nội dung phương thức
 ### Phương thức 1
-> Nhập vào số tự nhiên N
+> **checkSymmetry()**
 
 ```java
     
 ```
 ### Phương thức 2
-> Kiểm tra số tự nhiên N có phải số nguyên tố hay không?
+> **findLargeArea()**
 
 ```java
     
 ```
 ### Phương thức 3
-> Liệt kê các số nguyên tố nhỏ hơn N
+> **findRectangle()**
 
 ```java
     
