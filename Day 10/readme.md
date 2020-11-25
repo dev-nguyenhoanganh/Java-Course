@@ -6,7 +6,7 @@ Giá_trị_khởi_tạo;
 do {
 	// Công việc cần thực hiện
 	Biểu_thức_bước_nhảy;
-} while();
+} while(Biểu_thức_điều_kiện_lặp);
 ```
 - Tương tự các vòng lặp `while`, `for` tuy nhiên `do - while` khác ở chỗ là thực hiện công việc ít nhất một lần rồi mới kiểm tra điều kiện của biểu thức điều kiện.
 > ## 2. Từ khóa `break`
