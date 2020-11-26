@@ -6,8 +6,13 @@
  */
 package com.luvina.example.tugiac;
 
-public class TuGiac {
+public class TuGiac implements IDiChuyen {
 	public void inTT() {
 		System.out.println("Đây là hình tứ giác");
+	}
+
+	@Override
+	public void diChuyen() {
+		
 	}
 }
