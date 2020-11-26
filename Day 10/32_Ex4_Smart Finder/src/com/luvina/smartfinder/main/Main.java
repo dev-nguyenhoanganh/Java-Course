@@ -14,8 +14,7 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		SmartFinder number = new SmartFinder(16);
+		SmartFinder number = new SmartFinder(16161);
 		number.result();
 	}
-
 }

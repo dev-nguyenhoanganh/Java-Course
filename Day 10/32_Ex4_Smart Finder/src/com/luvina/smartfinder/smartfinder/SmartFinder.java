@@ -38,15 +38,16 @@ public class SmartFinder {
 		if(number < 10) return false;
 		int length = lengthOfNumber(number);
 		int start, end;
+		long tempNum = number;
 
 		for(int i = length - 1; i > 0; i-=2) {
-			start = (int) (number / Math.pow(10, i));
-			end   = (int) (number % 10);
+			start = (int) (tempNum / Math.pow(10, i));
+			end   = (int) (tempNum % 10);
 
 			if(start == end) 
 			{
-				number -= start * Math.pow(10, i);
-				number /= 10;
+				tempNum -= start * Math.pow(10, i);
+				tempNum /= 10;
 				continue;
 			}
 			else return false;
@@ -63,14 +64,14 @@ public class SmartFinder {
 	public String findLargeArea() {
 		String result = "";
 		boolean firstPair = true;
-		for(int i = 6; i < 50; i++) 
+		for(int i = 5; i < 50; i++) 
 		{
 			for(int j = i; j < 50; j++) 
 			{
 				int count = 0;
 				if(i + j < 50) 
 				{
-					for(int k = 1; k < i; k++)
+					for(int k = 1; k <= i; k++)
 					{
 						if((i % k == 0) && (j % k == 0)) 
 						{
