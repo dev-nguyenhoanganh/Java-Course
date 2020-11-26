@@ -22,29 +22,28 @@ Xây dựng đối tượng gồm có một huộc tính là số N và có các
 ```java
 /**
  * Phương thức kiểm tra xem N có phải số đối xứng hay không
- * <ul> Cách thức kiểm tra:
- * <li> Sử dụng 1 vòng while() để tìm chiều dài của số nguyên nhập vào </li>
- * <li> Dựa vào kích thước tìm được tính ra các số nguyên đứng đầu và 
- *      đứng cuối </li>
- * <li> So sánh chúng với nhau, nếu khác thì return false, 
- * 		nếu tất cả đều đúng thì return true </li></ul>
- * @return <ul>
- *  <li>true - Là số đối xứng</li>
- * 	<li>false - Không phải số đối xứng</li></ul>
+ *  <ul> Cách thức kiểm tra:
+ * 	<li> Sử dụng 1 vòng while() để tìm chiều dài của số nguyên nhập vào </li>
+ * 	<li> Dựa vào kích thước tìm được tính ra các số nguyên đứng đầu và đứng cuối </li>
+ * 	<li> So sánh chúng với nhau, nếu khác thì return false, 
+ * 		 nếu tất cả đều đúng thì return true </li></ul>
+ * @return true - Là số đối xứng
+ * 	<li> false - Không phải số đối xứng </li>
  */
 public boolean checkSymmetry() {
     if(number < 10) return false;
     int length = lengthOfNumber(number);
     int start, end;
+    long tempNum = number;
 
     for(int i = length - 1; i > 0; i-=2) {
-        start = (int) (number / Math.pow(10, i));
-        end   = (int) (number % 10);
+        start = (int) (tempNum / Math.pow(10, i));
+        end   = (int) (tempNum % 10);
 
         if(start == end) 
         {
-            number -= start * Math.pow(10, i);
-            number /= 10;
+            tempNum -= start * Math.pow(10, i);
+            tempNum /= 10;
             continue;
         }
         else return false;
