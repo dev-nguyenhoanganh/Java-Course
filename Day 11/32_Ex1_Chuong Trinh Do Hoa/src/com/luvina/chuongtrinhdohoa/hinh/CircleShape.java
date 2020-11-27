@@ -6,8 +6,6 @@
  */
 package com.luvina.chuongtrinhdohoa.hinh;
 
-import com.luvina.chuongtrinhdohoa.butve.DrawPen;
-
 public class CircleShape extends Shape{
 	
 	/**

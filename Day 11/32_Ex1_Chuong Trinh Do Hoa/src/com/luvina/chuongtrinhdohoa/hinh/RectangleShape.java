@@ -6,7 +6,7 @@
  */
 package com.luvina.chuongtrinhdohoa.hinh;
 
-import jdk.vm.ci.hotspot.SharedHotSpotSpeculationLog;
+//import jdk.vm.ci.hotspot.SharedHotSpotSpeculationLog;
 
 public class RectangleShape extends Shape {
 

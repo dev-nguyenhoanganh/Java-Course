@@ -56,23 +56,22 @@ public class DrawPen {
 
 > Đối tượng hình vẽ
 ```java
-public class Shape extends DrawPen {
-	
+public class Shape {
+	private DrawPen pen = new DrawPen(null);
+
 	/**
 	 * Phương thức khởi tạo đối tượng hình dạng
-	 * @param color - Màu sắc của bút vẽ
+	 * @param penColor - Màu sắc của bút vẽ
 	 */
 	public Shape(String penColor) {
-		super(penColor);
+		pen.setDrawColor(penColor);
 	}
 	
 	/**
 	 * Phương thức vẽ của đối tượng hình dạng
 	 */
-	@Override
 	public void draw() {
-		System.out.print("\nHình dạng" + " được vẽ bằng ");
-		super.draw();
+		pen.draw();
 	}
 }
 ```

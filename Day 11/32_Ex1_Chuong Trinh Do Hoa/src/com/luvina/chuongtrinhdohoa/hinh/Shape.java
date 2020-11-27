@@ -9,7 +9,7 @@ package com.luvina.chuongtrinhdohoa.hinh;
 import com.luvina.chuongtrinhdohoa.butve.DrawPen;
 
 public class Shape {
-	private DrawPen pen;
+	private DrawPen pen = new DrawPen(null);
 
 	/**
 	 * Phương thức khởi tạo đối tượng hình dạng
@@ -22,9 +22,7 @@ public class Shape {
 	/**
 	 * Phương thức vẽ của đối tượng hình dạng
 	 */
-	@Override
 	public void draw() {
-		System.out.print("\nHình dạng" + " được vẽ bằng ");
-		super.draw();
+		pen.draw();
 	}
 }
