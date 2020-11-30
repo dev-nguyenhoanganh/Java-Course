@@ -6,23 +6,32 @@
  */
 package com.luvina.example.main;
 
-import com.luvina.example.tugiac.*;
-
 public class Main {
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		TuGiac tg1 = new TuGiac();
-		TuGiac tg2 = new HinhVuong();
-		TuGiac tg3 = new HinhChuNhat();
-		
-		tg1.inTT();
-		tg2.inTT();
-		tg3.inTT();
-		
-		HinhVuong hv = (HinhVuong) tg2;
-		hv.tinhDoDaiCanh();
+		String heap1 = new String("Nam");
+		String heap2 = new String("Nam");
+
+		String pool1 = "Nam";
+		String pool2 = "Nam";
+
+		System.out.println("\tToán tử == ");
+		System.out.print("So sánh heap - heap: ");
+		System.out.println(heap1 == heap2);
+		System.out.print("So sánh heap - StringPool: ");
+		System.out.println(heap1 == pool1);
+		System.out.print("So sánh StringPool - StringPool: ");
+		System.out.println(pool1 == pool2);
+
+		System.out.println("\n\tDùng equals");
+		System.out.print("So sánh heap - heap: ");
+		System.out.println(heap1.equals(heap2));
+		System.out.print("So sánh heap - StringPool: ");
+		System.out.println(pool1.equals(heap1));
+		System.out.print("So sánh StringPool - StringPool: ");
+		System.out.println(pool1.equals(pool2));
 	}
 }
