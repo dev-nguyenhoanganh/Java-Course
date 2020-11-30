@@ -1,28 +1,17 @@
-## Buổi 12: String
-
-> 1. Khái niệm và cách khởi tạo `String`
-- Khái niệm
-    - Là một đối tượng được Java định nghĩa để xử lý các bài toán với chuỗi văn bản như: biểu diễn, xóa, cắt, duyệt các ký tự, chuỗi con.
-    - Là kiểu đối tượng có cấu trúc
-    - Là kiểu đối tượng `immutable` - nghĩa là giá trị của đối tượng String sau khi khởi tạo sẽ không bị thay đổi khi thực hiện hành vi của chính nó
-- Cách khởi tạo
-    - Cách 1: Khởi tạo đối tượng String tại vùng nhớ StringPool
-    
-        Cú pháp
-        ```java
-        String tenThamSo = "Chuỗi văn bản";
-        String name = "Hoàng Anh";
-        ```
-        Ý nghĩa:
-        - Đây là cách khởi tạo được ưu tiên sử dụng
-        - Khởi tạo đối tượng ở vùng nhớ StringPool sẽ tiết kiệm được bộ nhớ vì 2 String có cùng giá trị sẽ nằm vào cùng một ô nhớ
-
-    - Cách 2: Khởi tạo đối tượng tại vùng nhớ Heap
-        
-        Cú pháp
-        ```java
-        String name = new String("Hoàng Anh");
-        ```
-        Ý nghĩa
-        - Đây là cách khởi tạo dùng trong một số trường hợp bắt buộc như chuyển đổi một dãy ký tự sang String hay 1 dãy các số byte sang String ...
-        - Cách khởi tạo trên, đối tượng String sẽ được tạo mới và được lưu trữ tại vùng nhớ Heap.
+# Bài 1
+Xây dựng chương trình với đối tượng `Text` có thộc tính `chuỗi text` và có các hành vi sau đây: 
+- Phương thức khởi tạo gồm 1 tham số truyền vào để nhập dữ liệu cho thuộc tính `text`
+- Tính tổng các số có trong chuỗi. VD:
+```
+    abc123nd4gg56 => Tổng = 123 + 4 + 56
+```
+- Tìm và in ra chữ cái có max ASCII nhỏ nhất
+    + Nghĩa là so sánh xem ký tự nào nhỏ nhất thì in ra
+    + Cách so sánh: `if(kyTu1 > kyTu2)`
+- Tìm và in ra các ký tự in hoa có trong chuỗi
+- Viết hoa các chữ cái đầu tiên của từng từ trong chuỗi. VD
+```
+    nguyen 3hoang anh => Nguyen 3hoang Anh
+```
+- In ra chuỗi bị đảo ngược
+> Lưu ý: Xây dựng phương thức MyString trong Main và gọi các phương thức để kiểm tra.

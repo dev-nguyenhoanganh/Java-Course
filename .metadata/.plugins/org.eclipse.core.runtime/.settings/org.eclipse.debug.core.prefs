@@ -1,2 +1,2 @@
 eclipse.preferences.version=1
-prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<watchExpressions>\r\n    <expression enabled\="true" text\="number / Math.pow(10, halfLength - i) \!\= number / Math.pow(10, halfLength + i)"/>\r\n</watchExpressions>\r\n
+prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<watchExpressions>\r\n    <expression enabled\="true" text\="'0' &lt;\= text.charAt(i) &amp;&amp; '9' &gt;\= text.charAt(i)"/>\r\n</watchExpressions>\r\n
