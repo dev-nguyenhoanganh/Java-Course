@@ -36,7 +36,6 @@ public class SmartCount {
 	 * @return - trả về số lần lặp của chuỗi *ret* trong chuỗi *this*
 	 */
 	public int countRepeat(String ret) {
-		String tmp  = str.replace(ret, "");
 		// int count = 0;
 		// String tmp2 = ""; 
 		// for(int j = 0; j < tmp.length(); j++) {
@@ -57,6 +56,7 @@ public class SmartCount {
 		// }
 		// return count;
 		
+		String tmp  = str.replace(ret, "");
 		return (str.length() - tmp.length()) / ret.length();
 	}
 	
