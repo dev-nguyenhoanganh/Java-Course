@@ -36,25 +36,28 @@ public class SmartCount {
 	 * @return - trả về số lần lặp của chuỗi *ret* trong chuỗi *this*
 	 */
 	public int countRepeat(String ret) {
-		int count = 0;
-		String tmp  = str;
-		String tmp2 = ""; 
-		for(int j = 0; j < tmp.length(); j++) {
-			if(tmp.contains(ret)) {
-				int i = tmp.indexOf(ret, 0) + ret.length();
-				while(i < tmp.length()) {
-					tmp2 += tmp.charAt(i);
-					i++;
-				}
-				count++;
-			}
-			else {
-				return count;
-			}
-			tmp  = tmp2;
-			tmp2 = "";
-		}	
-		return count;
+		String tmp  = str.replace(ret, "");
+		// int count = 0;
+		// String tmp2 = ""; 
+		// for(int j = 0; j < tmp.length(); j++) {
+		// 	if(tmp.contains(ret)) {
+		// 		// int i = tmp.indexOf(ret, 0) + ret.length();
+		// 		// while(i < tmp.length()) {
+		// 		// 	tmp2 += tmp.charAt(i);
+		// 		// 	i++;
+		// 		// }
+		// 		tmp2 = tmp.replace(ret, "");
+		// 		count++;
+		// 	}
+		// 	else {
+		// 		return count;
+		// 	}
+		// 	tmp  = tmp2;
+		// 	tmp2 = "";
+		// }
+		// return count;
+		
+		return (str.length() - tmp.length()) / ret.length();
 	}
 	
 	/**

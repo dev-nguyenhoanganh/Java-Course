@@ -61,8 +61,9 @@ public class Text {
 	public char findLowestChar() {
 		char lowest = text.charAt(0);
 		for(int i = 1; i < text.length(); i++) {
-			if(lowest > text.charAt(i)) {
-				lowest = text.charAt(i);
+			char tempChar = text.charAt(i);
+			if(lowest > tempChar) {
+				lowest = tempChar;
 			} 
 		}
 		return lowest;
@@ -74,18 +75,22 @@ public class Text {
 	 */
 	public String findUpperCase() {
 		String result = "";
-		boolean first = true;
+		// boolean first = true;
 		for(int i = 0; i < text.length(); i++) {
 			if('A' <= text.charAt(i) && 'Z' >= text.charAt(i)) {
-				if (first) {
-					result += text.charAt(i);
-					first = false;
-				}
-				else {
-					result += "," + text.charAt(i);
-				}
+				// char tempChar = text.charAt(i);
+				// if (first) {
+				// 	result += tempChar;
+				// 	first = false;
+				// }
+				// else {
+				// 	result += "," + tempChar;
+				// }
+
+				result += "," + text.charAt(i);
 			}
 		}
+		result = result.substring(1);
 		return result;
 	}
 	
@@ -117,14 +122,15 @@ public class Text {
 		}
 		
 		for(int i = 1; i < text.length(); i++) {
+			char tempChar = text.charAt(i);
 			if(i == text.length() - 1) {
-				result += text.charAt(i);
+				result += tempChar;
 				break;
 			}
 			else {
 				if(text.charAt(i) == ' ') {
 					// result += ' ';
-					if(text.charAt(i+1) >= 'a' && text.charAt(i) <= 'z') {
+					if(text.charAt(i+1) >= 'a' && text.charAt(i+1) <= 'z') {
 						result += (char) (text.charAt(++i) - 32); 
 						continue;
 					}
@@ -135,6 +141,13 @@ public class Text {
 		return result;
 	}
 	
+	/**
+	 * Thêm cờ flag = true; 
+	 * khi gặp dấu cách bằng true; 
+	 * Khi gặp chữ đầu tiên thì upper và đổi cờ thành false
+	 * nếu ko phải 'space' thì uppercase lên, sử dụng hàm char.toUpperCase();
+	 */
+
 	/**
 	 * Phương thức trả về chuỗi đảo ngược
 	 * @return result - Là một xâu ký tự sau khi đảo ngược chuỗi *this* 

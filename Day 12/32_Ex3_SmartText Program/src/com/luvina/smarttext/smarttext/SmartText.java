@@ -176,7 +176,15 @@ public class SmartText {
 		}
 		return result + "\"";
 	}
-	
+	/**
+	 * - Dùng hàm trim, cắt dấu cách
+	 * - replace() 2 dấu space thành 1 dấu cách
+	 * - while(contains("  ")) {
+	 * 		replace();
+	 * }
+	 * 
+	 */
+
 	/**
 	 * Phương thức xóa các ký tự latin đặc biệt
 	 * <p> Ý tưởng: Dùng 1 vòng lặp for duyệt từng phần tử có trong chuỗi.

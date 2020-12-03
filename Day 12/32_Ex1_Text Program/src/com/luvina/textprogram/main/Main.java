@@ -14,7 +14,7 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Text myString = new Text("nguyen Hoang 3anh");
+		Text myString = new Text("nguyen H36oaVAAFng 3anh5");
 		
 		// Method 1
 		int sum = myString.sumContainNumber();
