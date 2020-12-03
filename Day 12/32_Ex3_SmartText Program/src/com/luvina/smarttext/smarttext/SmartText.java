@@ -1,11 +1,18 @@
 /**
  * @Project_Name 32_Ex3_SmartText Program
- * @author Hoang Anh
- * @date 1 thg 12, 2020
- * @version 1.0
+ *
  */
 package com.luvina.smarttext.smarttext;
 
+/**
+ * <p> Thay đổi tại phương thức <b>orderByCharacter()</b> từ tăng dần
+ * thành giảm dần 
+ * 
+ * @author Hoang Anh
+ * @date 1 thg 12, 2020
+ * @version 2.0
+ * 
+ */
 public class SmartText {
 	private String text;
 	final String UNICODE_A = "áàạảãăắằặẵẳâấầậẩẫâ";
@@ -53,7 +60,7 @@ public class SmartText {
 	}
 	
 	/**
-	 * Phương thức sắp xếp các ký tự có trong chuỗi theo chiều tăng dần
+	 * Phương thức sắp xếp các ký tự có trong chuỗi theo chiều giảm dần
 	 * của bảng mã ASCII
 	 * <p> Ý tưởng: 
 	 * <li> Vòng for 1: Dùng để duyệt từng ký tự trong chuỗi *this* 
@@ -74,20 +81,20 @@ public class SmartText {
 //		start_loop:
 		for(int i = 1; i < input.length(); i++) 
 		{
-			char lowest = tmp.charAt(0);
+			char max = tmp.charAt(0);
 			for(int j = 1; j < tmp.length(); j++) 
 			{
-				if(lowest > tmp.charAt(j)) 
+				if(max < tmp.charAt(j)) 
 				{
-					tmp2  += lowest;
-					lowest = tmp.charAt(j);
+					tmp2  += max;
+					max = tmp.charAt(j);
 					continue;
 				}
 				tmp2 += tmp.charAt(j);
 			}
 			tmp  = tmp2;
 			tmp2 = "";
-			result += lowest;
+			result += max;
 		}
 		return result + "\"";
 	}

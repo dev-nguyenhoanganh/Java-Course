@@ -2,7 +2,9 @@
  * @Project_Name 32_Ex1_Text Program
  * @author Hoang Anh
  * @date 30 thg 11, 2020
- * @version 1.0
+ * @version 2.0
+ * 
+ * Chỉnh sửa tại phương thức <b>sumContainNumber()</b>
  */
 package com.luvina.textprogram.text;
 
@@ -28,19 +30,15 @@ public class Text {
 		String numberString = "";
 		int sum 	= 0;
 		for(int i = 0; i < text.length(); i++) {
-			if('0' <= text.charAt(i) && '9' >= text.charAt(i)) 
-			{
+			if('0' <= text.charAt(i) && '9' >= text.charAt(i)) {
 				numberString += text.charAt(i);
 				if(i == text.length() - 1) {	
 					sum += Integer.parseInt(numberString);
 				}
-				else if('0' <= text.charAt(i + 1) && '9' >= text.charAt(i + 1)) {
-					continue;
-				}
-				else {
-					sum += Integer.parseInt(numberString);
-					numberString = "";
-				}
+			}
+			else if(!numberString.isEmpty()) {
+				sum += Integer.parseInt(numberString);
+				numberString = "";
 			}
 		}
 		return sum;
@@ -83,6 +81,18 @@ public class Text {
 	
 	/**
 	 * In hoa các chữ cái đầu của từng từ trong chuỗi
+	 * 
+	 * <p> Ý tưởng: 
+	 * <li> Kiểm tra ký tự đầu tiên của mảng, nếu nằm trong khoảng từ 
+	 * 'a' đến 'z' thì tiến hành chuyển thành ký tự in hoa rồi cộng vào 
+	 * chuỗi *result* để trả về. Trong trường hợp không nằm trong giải 
+	 * ký tự 'a' - 'z' thì cộng trực tiếp vào chuỗi *result*
+	 * <li> Sau đó dùng một vòng lặp for duyệt các phần tử còn lại của 
+	 * chuỗi. Khi bắt gặp ký tự 'space' thì tiến hành kiểm tra ký tự 
+	 * liền kề với nó. Nếu thuộc khoảng 'a' - 'z' thì tiến hành chuyển
+	 * thành chữ in hoa và cộng vào *result*. Nếu không thì giữ nguyên
+	 * rồi cộng vào *result* 
+	 * 
 	 * @return result - Là một xâu ký tự đã in hoa các chữ cái đầu của
 	 * từng từ trong chuỗi
 	 */
@@ -92,14 +102,18 @@ public class Text {
 		if('a' <= text.charAt(0) && 'z' >= text.charAt(0)) {
 			result += (char) (text.charAt(0) - 32);
 		}
+		else {
+			result += text.charAt(0);
+		}
 		
 		for(int i = 1; i < text.length(); i++) {
 			if(i == text.length() - 1) {
 				result += text.charAt(i);
+				break;
 			}
 			else {
 				if(text.charAt(i) == ' ') {
-					result += ' ';
+					// result += ' ';
 					if(text.charAt(i+1) >= 'a' && text.charAt(i) <= 'z') {
 						result += (char) (text.charAt(++i) - 32); 
 						continue;
