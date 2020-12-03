@@ -1,11 +1,15 @@
 /**
  * @Project_Name 32_Ex4_External Project
- * @author Hoang Anh
- * @date 2 thg 12, 2020
- * @version 1.0
+ * 
  */
 package com.luvina.external.smartcount;
 
+/**
+ * 
+ * @author Hoang Anh
+ * @since 2 thg 12, 2020
+ * @version 1.0
+ */
 public class SmartCount {
 	private String str; 
 	

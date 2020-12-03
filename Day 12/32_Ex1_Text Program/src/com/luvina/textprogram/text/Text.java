@@ -1,13 +1,23 @@
 /**
  * @Project_Name 32_Ex1_Text Program
- * @author Hoang Anh
- * @date 30 thg 11, 2020
- * @version 2.0
- * 
- * Chỉnh sửa tại phương thức <b>sumContainNumber()</b>
  */
 package com.luvina.textprogram.text;
 
+/**
+ * <p> Chỉnh sửa tại phương thức <b>findUpperCase()</b> 
+ * <ul><li>
+ * Sửa lỗi lặp ký tự cuối </li>
+ * <li>
+ * Sửa lỗi double ký tự 'space' </li>
+ * <li>
+ * Sửa lỗi bị mất ký tự đầu tiên nếu nó không phải 'a'-'z' </li>
+ * </ul></p>
+ * 
+ * @since 30 thg 11, 2020
+ * @author Hoang Anh
+ * @version 2.0
+ * 
+ */
 public class Text {
 	private String text;
 	
