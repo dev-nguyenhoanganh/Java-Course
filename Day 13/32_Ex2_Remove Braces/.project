@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>Example Project</name>
+	<name>32_Ex2_Remove Braces</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -16,7 +16,7 @@
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1606436883638</id>
+			<id>1607042372465</id>
 			<name></name>
 			<type>30</type>
 			<matcher>
