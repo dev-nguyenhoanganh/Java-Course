@@ -44,7 +44,7 @@ public class Brackets {
 			return result.toString();
 		}
 
-		for (int i = 0; i < indexBuffer.length(); i++) {
+		while (!indexBuffer.isEmpty()) {
 			if (indexBuffer.isEmpty()) {
 				break;
 			}

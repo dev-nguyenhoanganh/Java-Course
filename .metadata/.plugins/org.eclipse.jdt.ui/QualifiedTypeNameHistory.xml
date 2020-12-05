@@ -11,4 +11,8 @@
     <fullyQualifiedTypeName name="com.luvina.example.tugiac.HinhVuong"/>
     <fullyQualifiedTypeName name="com.luvina.chuongtrinhdohoa.butve.DrawPen"/>
     <fullyQualifiedTypeName name="com.luvina.textprogram.text.Text"/>
+    <fullyQualifiedTypeName name="com.luvina.text.text.Text"/>
+    <fullyQualifiedTypeName name="java.lang.StringBuffer"/>
+    <fullyQualifiedTypeName name="com.luvina.removebrace.logiclayer.RemoveBrackets"/>
+    <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
 </qualifiedTypeNameHistroy>
