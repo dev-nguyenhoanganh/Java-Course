@@ -14,7 +14,12 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		System.out.println(sum2String("129", "1235"));
+		String numA = "129";
+		String numB = "1235";
+		System.out.println("NumA: " + numA);
+		System.out.println("NumB: " + numB);
+
+		System.out.println("Sum of them: " + sum2String(numA, numB));
 	}
 
 	public static int sum2String(String numA, String numB) {
