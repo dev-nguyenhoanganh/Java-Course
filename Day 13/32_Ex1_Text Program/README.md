@@ -8,6 +8,4 @@ Xây dựng chương trình đối tượng `Text` có những thuộc tính chu
 ```
 - Kiểm tra chuỗi `Text` có là chuỗi đối xứng hay không?
 
-> Lưu ý:
-
-Xây dựng đối tượng `MyString` trong main và gọi các phương thức để kiểm tra
+> Lưu ý: Xây dựng đối tượng `MyString` trong main và gọi các phương thức để kiểm tra

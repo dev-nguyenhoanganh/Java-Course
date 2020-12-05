@@ -29,6 +29,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="D:\Java Programing Language\BTVN Project\Day 13"/>
 			<item value="D:\Java Programing Language\BTVN Project\Day 12\32_Ex3_SmartText Program"/>
 			<item value="D:\Java Programing Language\BTVN Project\Day 12\32_Ex2_ReverseInt Program"/>
 			<item value="D:\Java Programing Language\BTVN Project\Day 12\32_Ex1_Text Program"/>

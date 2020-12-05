@@ -1,5 +1,5 @@
 # Bài 2
-Viết chương trình nhập vào một chuỗi String gồm các ký tự `'(',')'`
+Viết chương trình nhập vào một chuỗi String gồm các ký tự `(`,`)`
 ```
     VD: ()()))))()(())()()()(()))(
 ```

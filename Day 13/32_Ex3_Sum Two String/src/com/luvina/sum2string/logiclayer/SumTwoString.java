@@ -9,12 +9,22 @@ package com.luvina.sum2string.logiclayer;
  * @version 1.0
  */
 public class SumTwoString {
-
+	private String number;
+	
 	/**
 	 * 
 	 */
-	public SumTwoString() {
-		
+	public SumTwoString(String number) {
+		this.number = number;
 	}
 
+	
+	
+	
+	/**
+	 * @param number the number to set
+	 */
+	public void setNumber(String number) {
+		this.number = number;
+	}
 }
