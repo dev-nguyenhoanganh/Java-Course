@@ -16,7 +16,7 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		String lastBracket = "(())()(()(()(";
+		String lastBracket = ")))(())()(()(()(";
 		Brackets brackets = new Brackets(lastBracket);
 		System.out.println("Input: " + lastBracket);
 		System.out.println("Result: " + brackets.removeBrackest());

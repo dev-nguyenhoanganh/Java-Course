@@ -18,6 +18,10 @@ public class Brackets {
 		this.brackets = brackets;
 	}
 
+	/**
+	 * Code lại
+	 * @return
+	 */
 	public String removeBrackest() {
 		StringBuffer result = new StringBuffer(brackets);
 		String indexBuffer = "";
@@ -32,8 +36,12 @@ public class Brackets {
 
 			if (bracket == ')') {
 				if (indexBuffer.length() < 2) {
-					result.deleteCharAt(i);
-					i--;
+					if(i == 0) {
+						result.deleteCharAt(i);
+					} else {
+						result.deleteCharAt(i);
+						i--;
+					}					
 				}
 				indexBuffer = indexBuffer.substring(0, indexBuffer.lastIndexOf(' '));
 			}

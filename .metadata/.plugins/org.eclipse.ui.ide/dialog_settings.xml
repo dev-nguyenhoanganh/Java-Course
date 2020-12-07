@@ -29,6 +29,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\Hoang Anh\Desktop\Review\Day 13"/>
 			<item value="D:\Java Programing Language\BTVN Project\Day 13"/>
 			<item value="D:\Java Programing Language\BTVN Project\Day 12\32_Ex3_SmartText Program"/>
 			<item value="D:\Java Programing Language\BTVN Project\Day 12\32_Ex2_ReverseInt Program"/>
@@ -57,5 +58,9 @@
 		<item key="DIALOG_WIDTH" value="500"/>
 		<item key="DIALOG_HEIGHT" value="389"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="ResourceNavigator">
+		<item key="ResourceViewer.STORE_SORT_TYPE" value="1"/>
+		<item key="ResourceWorkingSetFilter.STORE_WORKING_SET" value="Aggregate for window 1604367525346"/>
 	</section>
 </section>
