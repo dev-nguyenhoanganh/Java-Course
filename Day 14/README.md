@@ -1,5 +1,5 @@
 # Buổi 14: Array
-> 1. Khái niệm mảng
+> ### 1. Khái niệm mảng
 - Mảng là một tập hợp hữu hạn các phần tử có cùng kiểu dữ liệu, có địa chỉ liên tiếp nhau trong bộ nhớ.
 - Số lượng phần tử của mảng là cố định và được xác định khi khai báo mảng. Sau đó không thể thay đổi số lượng phần tử trong mảng.
 - Mảng được sử dụng để giải quyết các bài toán về tập hợp như: duyệt, tìm kiếm, xóa, sắp xếp ...
@@ -36,7 +36,7 @@ Các đặc điểm của mảng
         * `boolean` : false
         * `char` : ký tự có mã ASCII là 0
 
-> 2. Duyệt mảng
+> ### 2. Duyệt mảng
 
 a) Mảng một chiều
 - Sử dụng một vòng **for** để duyệt từng phần tử mảng để giải quyết công việc
@@ -95,7 +95,7 @@ System.out.println("Min value: " + min);
 System.out.println("So lan xuat hien: " + count);
 System.out.println("Vi Tri: \n" + listIndex);
 ```
-> Bài tập về nhà
+> ### Bài tập về nhà
 
 Tìm và in ra vị trí số bé thứ hai trong mảng. Số lần xuất hiện, giá trị, vị trí từng lần xuất hiện. Kích thước 4x4
 
