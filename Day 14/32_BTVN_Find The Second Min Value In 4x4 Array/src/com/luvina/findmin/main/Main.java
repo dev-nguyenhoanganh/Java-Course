@@ -1,7 +1,7 @@
 /**
- * @Project_Name 32_Ex2_Array Util
+ * @Project_Name 32_BTVN_Find The Second Min Value In 4x4 Array
  */
-package com.luvina.arrayutil.main;
+package com.luvina.findmin.main;
 
 /**
  * @author Hoang Anh
