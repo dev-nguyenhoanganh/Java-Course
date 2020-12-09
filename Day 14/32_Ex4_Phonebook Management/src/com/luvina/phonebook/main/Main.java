@@ -3,9 +3,8 @@
  */
 package com.luvina.phonebook.main;
 
-import java.util.Arrays;
-
 import com.luvina.phonebook.management.Management;
+
 /**
  * @author Hoang Anh
  * @since 4 thg 12, 2020
