@@ -3,6 +3,8 @@
  */
 package com.luvina.studentmanagement.main;
 
+import com.luvina.studentmanagement.studentmanager.StudentManager;
+
 /**
  * @author Hoang Anh
  * @since 8 thg 12, 2020
@@ -14,8 +16,13 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		StudentManager manager = new StudentManager();
+		manager.printList();
 
+		int score = 10;
+		String result = manager.findStudentByScore(score);
+		System.out.println("Danh sách sinh viên có điểm " + score + " là: ");
+		System.out.println(result);
 	}
 
 }
