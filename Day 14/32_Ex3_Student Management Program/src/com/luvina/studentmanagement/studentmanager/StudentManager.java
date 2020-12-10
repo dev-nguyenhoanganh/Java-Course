@@ -18,12 +18,13 @@ public class StudentManager {
 	 * của đối tượng
 	 */
 	public StudentManager() {
-		students = new Student[5];
-		students[0] = new Student("20165739", "Nguyen Hoang Anh"  , 5 );
-		students[1] = new Student("20166123", "Pham Thu Hoai"     , 8 );
-		students[2] = new Student("20166122", "Hoang Thi Hoai"    , 7 );
-		students[3] = new Student("20165768", "Trinh Tuan Anh"    , 10);
-		students[4] = new Student("20170569", "Bui Thi Phuong Hoa", 10);
+		students = new Student[] {
+			new Student("20165739", "Nguyen Hoang Anh"  , 5 ),
+			new Student("20166123", "Pham Thu Hoai"     , 8 ),
+			new Student("20166122", "Hoang Thi Hoai"    , 7 ),
+			new Student("20165768", "Trinh Tuan Anh"    , 10),
+			new Student("20170569", "Bui Thi Phuong Hoa", 10)
+		};
 	}
 
 	/**
@@ -42,18 +43,31 @@ public class StudentManager {
 	 * @param score - điểm số 
 	 * @return - danh sách học sinh có điểm bằng với *score*
 	 */
-	public String findStudentByScore(int score) {
-		String result = "";
-		for(int i = 0; i < students.length; i++) {
-			if(score == students[i].getScore()) {
-				result += students[i].getName() + "\n"; 
+	// public String findStudentByScore(int score) {
+	// 	String result = "";
+	// 	for(int i = 0; i < students.length; i++) {
+	// 		if(score == students[i].getScore()) {
+	// 			result += students[i].getName() + "\n"; 
+	// 		}
+	// 	}
+
+	// 	if(result.isEmpty()) {
+	// 		return null;
+	// 	} else {
+	// 		return result;
+	// 	}
+	// }
+
+	public Student[] findStudentByScore(int score) {
+		Student[] resultList = new Student[students.length];
+		for (int i = 0; i < students.length; i++) {
+			if (score == students[i].getScore()) {
+				resultList[i] = students[i];
 			}
 		}
 
-		if(result.isEmpty()) {
-			return null;
-		} else {
-			return result;
-		}
+		return resultList;
 	}
+
+	// Tìm cái gì thì trả về dạng cấu trúc dữ liệu đó
 }

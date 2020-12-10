@@ -25,17 +25,17 @@ public class Student {
 		this.score  = score;
 	}
 
-//	/**
-//	 * Phương thức thiết lập giá trị cho các thuộc tính của đối tượng
-//	 * @param id - mã học sinh
-//	 * @param name - tên học sinh
-//	 * @param score - điểm số của học sinh
-//	 */
-//	public void setData(String id, String name, int score) {
-//		this.id 	= id;
-//		this.name 	= name;
-//		this.score 	= score;
-//	}
+	// /**
+	//  * Phương thức thiết lập giá trị cho các thuộc tính của đối tượng
+	//  * @param id - mã học sinh
+	//  * @param name - tên học sinh
+	//  * @param score - điểm số của học sinh
+	//  */
+	// public void setData(String id, String name, int score) {
+	// 	this.id 	= id;
+	// 	this.name 	= name;
+	// 	this.score 	= score;
+	// }
 	
 	@Override
 	public String toString() {

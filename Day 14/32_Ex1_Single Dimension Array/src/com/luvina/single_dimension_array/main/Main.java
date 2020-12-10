@@ -18,7 +18,7 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int[] defaultArr = {1, 2, 3, 4, 5, 2, 3, 1, 5, 4, 1, 4, 5, 3, 2};
+		int[] defaultArr = {1, 1, 1, 4, 5, 2, 3, 1, 5, 4, 1, 4, 5, 3, 2};
 		
 		ArrayInt arr = new ArrayInt(defaultArr);
 		int max = arr.findMax();

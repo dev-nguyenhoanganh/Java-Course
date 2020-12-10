@@ -70,26 +70,32 @@ public class ArrayInt {
 	}
 	
 	/**
-	 * Phương thức tìm và trả về giá trị của phần tử nhỏ ths 2 trong mảng
+	 * Phương thức tìm và trả về giá trị của phần tử nhỏ ths 2 trong mảng 
 	 * @return phần tử nhỏ thứ 2 trong mảng
 	 */
 	public int findSecondMinimum() {
-		int secondMinimum = arr[0] + arr[1];
 		int min = arr[0];
+		int secondMinimum = arr[0];
 
-		// Tìm min
+		boolean flag = false;
 		for(int i = 0; i < arr.length; i++) {
-			if(min > arr[i]) {
+			if(!flag) {
+				secondMinimum = arr[i];
+			}
+			if(arr[i] < min) {
+				secondMinimum = min;
 				min = arr[i];
-			} 
-		}
-
-		// Tìm secondMinimum
-		for(int i = 0; i < arr.length; i++) {
-			if(arr[i] > min && arr[i] < secondMinimum) {
+				flag = true;
+			} else if (secondMinimum > arr[i] && arr[i] != min) {
 				secondMinimum = arr[i];
 			}
 		}
+
+		if(min == secondMinimum) {
+			System.out.println("Tất cả các phần tử bằng nhau");
+			return 0;
+		}
+
 		return secondMinimum;
 	}
 
