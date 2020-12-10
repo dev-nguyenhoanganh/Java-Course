@@ -129,6 +129,6 @@ public class Management {
 	}
 
 //	private boolean validPhoneNumber(String phoneNumber) {
-//		return Pattern.matches(".*[0-9].*", phoneNumber);
+//		return Pattern.matches("^[0-9]{0,10}$", phoneNumber);
 //	}
 }
