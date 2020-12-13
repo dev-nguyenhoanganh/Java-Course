@@ -18,7 +18,7 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int[] tempArr = new int[] { 11000, 30001, 21210, 51010, 15251, 73571, 11111, 12345, 10154, 11310 };
+		int[] tempArr = new int[]  { 10001, 29998, 21210, 51010, 15251, 73571, 11111, 12345, 10000, 11310 };
 		NumberNice array = new NumberNice(tempArr);
 		System.out.println("Mảng ban đầu: ");
 		System.out.println(Arrays.toString(tempArr));

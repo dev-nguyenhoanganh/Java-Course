@@ -65,6 +65,10 @@ public class NumberNice {
 	public int[] findLargestSum() {
 		int[] tempArr = Arrays.copyOf(array, array.length);
 		Arrays.sort(tempArr);
+		if(array.length < 3) {
+			System.out.println("Mảng chưa đủ số lượng phần tử cần thiết");
+			return null;
+		}
 
 		// Loại bỏ các phần tử của mảng lớn hơn 50000
 		tempArr = cutArray(tempArr, MAX_VALUE);
@@ -75,7 +79,7 @@ public class NumberNice {
 						tempArr[0] = tempArr[k];
 						tempArr[1] = tempArr[j];
 						tempArr[2] = tempArr[i];
-						break;
+						return Arrays.copyOf(tempArr, 3);
 					}
 				}
 			}
