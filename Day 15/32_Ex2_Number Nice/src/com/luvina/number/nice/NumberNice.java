@@ -84,8 +84,8 @@ public class NumberNice {
 				}
 			}
 		}
-
-		return Arrays.copyOf(tempArr, 3);
+		System.out.println("Không có bộ 3 phần tử nào thỏa mãn");
+		return null;
 	}
 
 	// -------------------- PRIVATE LAYER --------------------

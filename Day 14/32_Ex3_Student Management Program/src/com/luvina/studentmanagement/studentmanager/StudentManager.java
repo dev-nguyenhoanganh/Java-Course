@@ -3,6 +3,9 @@
  */
 package com.luvina.studentmanagement.studentmanager;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 import com.luvina.studentmanagement.student.Student;
 
 /**
@@ -38,25 +41,17 @@ public class StudentManager {
 		}
 	}
 
-	/**
-	 * Phương thức tìm kiếm học sinh thông qua số điểm 
-	 * @param score - điểm số 
-	 * @return - danh sách học sinh có điểm bằng với *score*
-	 */
-	// public String findStudentByScore(int score) {
-	// 	String result = "";
-	// 	for(int i = 0; i < students.length; i++) {
-	// 		if(score == students[i].getScore()) {
-	// 			result += students[i].getName() + "\n"; 
-	// 		}
-	// 	}
+	Comparator <Student> orderByName = new Comparator <Student>() {
+		@Override
+		public int compare(Student o1, Student o2) {
 
-	// 	if(result.isEmpty()) {
-	// 		return null;
-	// 	} else {
-	// 		return result;
-	// 	}
-	// }
+			return o1.getName().compareTo(o2.getName());
+		};
+	};
+
+	public void Sort() {
+		Arrays.sort(students, orderByName);
+	}
 
 	public Student[] findStudentByScore(int score) {
 		Student[] resultList = new Student[students.length];

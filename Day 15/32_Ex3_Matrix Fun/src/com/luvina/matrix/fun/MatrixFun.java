@@ -3,6 +3,7 @@
  */
 package com.luvina.matrix.fun;
 
+import java.lang.ref.Cleaner;
 import java.util.Arrays;
 
 /**
@@ -49,6 +50,25 @@ public class MatrixFun {
 		return sum;
 	}
 	
+	public int[] calcSum() {
+		int[] sum = new int[4];
+		for (int i = 1; i < sum.length / 2 - 1; i++) {
+			for (int j = 0; j < sum.length - i - 1; j++) {
+				sum[1] += array[i][j];
+				sum[2] += array[j][i];
+			}
+		}
+
+		for (int i = 0; i < sum.length; i++) {
+			for (int j = 0; j < sum.length; j++) {
+				
+			}
+		}
+
+		return sum;
+	}
+
+
 	/**
 	 * Phương thức tìm giá trị phần tử lớn thứ hai trong mảng
 	 * @return Giá trị của phần tử lớn thứ 2 trong mảng

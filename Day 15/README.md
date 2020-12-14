@@ -26,6 +26,47 @@ c) Phương thức `sort()`
 - Được sử dụng để sắp xếp vị trí các phần tử của mảng theo 1 tiêu chí nào đó như: tăng dần, giảm dần ....
 - Trước khi sắp xếp phải xác định được tiêu chí sắp xếp là gì
 
+- Cách 1 : Viết hàm sắp xếp vào trong class của học sinh
+```java
+    @Override
+	public int compareTo(Student spObj) {
+		// Xếp tăng dần
+		return this.age - spObj.age;
+
+		// Xếp giảm dần
+		// return spObj.age - this.age;
+	}
+
+    // Xếp theo tên
+	@Override
+	public int compareTo(Student obj) {
+
+		return obj.getName().compareTo(this.name);
+	}
+
+	// So sánh kiểu dữ liệu double
+	@Override
+	public int compareTo(Student obj) {
+		double result = this.score - obj.score; 
+		return result > 0 ? 1 : (result < 0 ? 0 : -1) ;
+	}
+```
+- Cách 2 : Viết vào đối tượng quản lý
+
+```java
+    Comparator <Student> orderByName = new Comparator <Student>() {
+		@Override
+		public int compare(Student o1, Student o2) {
+
+			return o1.getName().compareTo(o2.getName());
+		};
+	};
+
+	public void Sort() {
+		Arrays.sort(students, orderByName);
+	}
+```
+
 d) Phương thức `copyOf()`
 - Được sử dụng để sao chép mảng hiện tại để tạo ra một mảng mới và trả về mảng kết quả
 

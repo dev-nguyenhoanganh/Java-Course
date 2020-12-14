@@ -20,7 +20,7 @@ Xây dựng chương trình **MatrixFun** có một đối tượng `MatrixFun` 
 
   - Phương thức `void init()` để nhập dữ liệu cho mảng `matrix`
   - Phương thức void `calcSumArea()` tính và in ra màn hình tổng của mỗi vùng được ngăn cách bởi 2 đường chéo như hình mô tả bên trên. `Lưu ý` không được tính các phần tử trên đường chéo đó
-  - Phương thức void `secondMax()` tìm và in ra phần tử lớn thứ 2 của ma trận đó
+  - Phương thức `void secondMax()` tìm và in ra phần tử lớn thứ 2 của ma trận đó
 
 - Xây dựng đối tượng Main để thực thi test cho chương trình
 
