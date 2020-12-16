@@ -19,10 +19,10 @@ public class Main {
 		StudentManager manager = new StudentManager();
 		manager.printList();
 
-		int score = 10;
-		String result = manager.findStudentByScore(score);
-		System.out.println("Danh sách sinh viên có điểm " + score + " là: ");
-		System.out.println(result);
+		// int score = 10;
+		// String result = manager.findStudentByScore(score);
+		// System.out.println("Danh sách sinh viên có điểm " + score + " là: ");
+		// System.out.println(result);
 	}
 
 }

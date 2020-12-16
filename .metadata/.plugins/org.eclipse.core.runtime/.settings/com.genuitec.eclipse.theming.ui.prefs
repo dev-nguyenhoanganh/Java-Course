@@ -1,4 +1,4 @@
-applyBackground=false
+applyBackground=true
 approved.defs.file.last.changed.time=1607625304000
 configurationInstallLocation=/C\:/Users/Hoang Anh/eclipse/committers-2020-09/eclipse/
 eclipse.preferences.version=1
@@ -6,8 +6,8 @@ elearning.dont.show.until=1606568531829
 iconcolormode=primary
 iconreplacement=false
 includeThemingInOomph=false
-last.download.attempt.time=1607696370494
-lastConfiguration=1607696352474
+last.download.attempt.time=1608087381088
+lastConfiguration=1608088591960
 newinstall=true
 overridePEFontSize=false
 workbench.theme=Dark Gray

@@ -17,4 +17,7 @@
     <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
     <fullyQualifiedTypeName name="org.graalvm.compiler.replacements.amd64.AMD64ArrayIndexOfDispatchNode"/>
     <fullyQualifiedTypeName name="com.luvina.phonebook.phonebook.Phonebook"/>
+    <fullyQualifiedTypeName name="java.lang.Object"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.luvina.prj.student.Student"/>
 </qualifiedTypeNameHistroy>
