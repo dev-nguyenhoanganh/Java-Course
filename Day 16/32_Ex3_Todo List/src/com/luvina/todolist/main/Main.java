@@ -3,6 +3,9 @@
  */
 package com.luvina.todolist.main;
 
+import com.luvina.todolist.manager.Manager;
+import com.luvina.todolist.task.Task;
+
 /**
  * @author Hoang Anh
  * @since 16 thg 12, 2020
@@ -14,8 +17,22 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		Manager man = new Manager();
 
+		man.addTask(new Task("Gấp chăn màn", "5h15"));
+		man.addTask(new Task("Nấu cơm", "1h6"));
+		man.addTask(new Task("Rửa bát", "1h13"));
+		man.display();
+
+		String result = man.modifyTask(new Task("Rửa bát", "12h00"));
+		System.out.println(result);
+
+		System.out.println("Kết quả tìm kiếm:");
+		man.display(man.findTask("5h15"));
+
+		result = man.alarm();
+		System.out.println("\nBáo thức: ");
+		System.out.println(result);
 	}
 
 }

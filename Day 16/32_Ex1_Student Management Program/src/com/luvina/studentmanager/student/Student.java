@@ -11,28 +11,31 @@ package com.luvina.studentmanager.student;
 public class Student {
 	private String gender;
 	private String name;
-	private String id;
 	private int score;
 	private int age;
+	private int id;
 
 	/**
 	 * 
 	 */
-	public Student(String gender, String name, String id, int score, int age) {
+	public Student(String gender, String name, int score, int age) {
 		this.gender = gender;
 		this.name 	= name;
-		this.id 	= id;
 		this.score 	= score;
 		this.age 	= age;
+		// this.id 	= id;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		Student object = (Student) obj;
-		if((object.getName().equals(this.name))) {
-			// return 
-		}
-		return super.equals(obj);
+		boolean nameCondition = ((Student) obj).getName().equals(this.name);
+		boolean ageCondition = ((Student) obj).getAge() == this.age;
+		return ageCondition && nameCondition;
+	}
+
+	@Override
+	public String toString() {
+		return "[" + id + "] " + name + " | " + gender + "_" + age + "_" + score;
 	}
 
 	/**
@@ -66,15 +69,15 @@ public class Student {
 	/**
 	 * @return the id
 	 */
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param i the id to set
 	 */
-	public void setId(String id) {
-		this.id = id;
+	public void setId(int i) {
+		this.id = i;
 	}
 
 	/**
@@ -104,4 +107,5 @@ public class Student {
 	public void setAge(int age) {
 		this.age = age;
 	}
+
 }

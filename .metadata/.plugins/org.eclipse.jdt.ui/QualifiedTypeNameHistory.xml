@@ -18,6 +18,12 @@
     <fullyQualifiedTypeName name="org.graalvm.compiler.replacements.amd64.AMD64ArrayIndexOfDispatchNode"/>
     <fullyQualifiedTypeName name="com.luvina.phonebook.phonebook.Phonebook"/>
     <fullyQualifiedTypeName name="java.lang.Object"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="com.luvina.prj.student.Student"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+    <fullyQualifiedTypeName name="org.graalvm.compiler.lir.amd64.AMD64VZeroUpper"/>
+    <fullyQualifiedTypeName name="java.lang.Character"/>
+    <fullyQualifiedTypeName name="com.sun.org.apache.xalan.internal.xsltc.compiler.Pattern"/>
+    <fullyQualifiedTypeName name="java.util.regex.Pattern"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.luvina.studentmanager.student.Student"/>
 </qualifiedTypeNameHistroy>

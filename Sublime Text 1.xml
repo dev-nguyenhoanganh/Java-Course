@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<colorTheme id="66" name="Sublime Text 2" modified="2011-01-29 11:20:12" author="Filip Minev">
+    <searchResultIndication color="#D8D8D8" />
+    <filteredSearchResultIndication color="#D8D8D8" />
+    <occurrenceIndication color="#FFB86C" />
+    <writeOccurrenceIndication color="#44475A" />
+    <findScope color="#44475A" />
+    <deletionIndication color="#FF0000" />
+    <sourceHoverBackground color="#FFFFFF" />
+    <singleLineComment color="#69FF94 " />
+    <multiLineComment color="#69FF94 " />
+    <commentTaskTag color="#69FF94 " />
+    <javadoc color="#69FF94 " />
+    <javadocLink color="#FF79C6" />
+    <javadocTag color="#FF79C6" />
+    <javadocKeyword color="#D9E577" />
+    <class color="#50FA7B" />
+    <interface color="#50FA7B" />
+    <method color="#50FA7B" />
+    <methodDeclaration color="#50FA7B" />
+    <bracket color="#FFB86C" />
+    <number color="#C48CFF" />
+    <string color="#F1FA8C" />
+    <operator color="#BD93F9" />
+    <keyword color="#8BE9FD" />
+    <annotation color="#FFFFFF" />
+    <staticMethod color="#50FA7B" />
+    <localVariable color="#FF79C6" />
+    <localVariableDeclaration color="#FF79C6" />
+    <field color="#CFBFAD" />
+    <staticField color="#CFBFAD" />
+    <staticFinalField color="#CFBFAD" />
+    <deprecatedMember color="#FF0000" />
+    <inheritedMethod color="#BED6FF" />
+    <abstractMethod color="#50FA7B" />
+    <parameterVariable color="#FF79C6" />
+    <typeArgument color="#BFA4A4" />
+    <typeParameter color="#BFA4A4" />
+    <background color="#282A36" />
+    <currentLine color="#44475A75" />
+    <foreground color="#F8F8F2" />
+    <lineNumber color="#999999" />
+    <selectionBackground color="#343746" />
+    <selectionForeground color="#F8F8F2" />
+</colorTheme>
