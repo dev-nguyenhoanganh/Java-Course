@@ -1,3 +1,43 @@
+# Bài 1
+
+Xây dựng chương trình **Smart String** có một đối tượng `SmartString` như sau:
+
+1. Viết phương thức `countCharacter(String text)` trả về số lần xuất hiện của ký tự `b` trong chuỗi text với điều kiện kí tự `b` đứng cách ký tự `a` một ký tự bất kỳ.
+```
+    VD:
+    abc acb aab ab axxb => b xuất hiện 2 lần
+```
+
+> ### Lưu ý : Rà soát và xử lý tất cả các lỗi có thể xảy ra cho chương trình
+
+2. Viết phương thức `checkPassword(String text)` trả về một chuỗi **String** chứa những password cách nhau bằng dấu cách (' '). Password phải thỏa mãn các điều kiện sau:
++ Độ dài từ 6 - 8 ký tự
++ Có ít nhất: 1 chữ thường, 1 chữ hoa, 1 chữ số
++ Không được bắt đầu bằng chữ số
+
+> ### Yêu cầu
+- Áp dụng các tính chất của lập trình hướng đối tượng để xây dựng chương trình
+- Chỉ sử dụng các kiến thức liên quan đến bài `String` - `StringBuilder` - `StringBuffer` để làm.
+
+---
+# Bài 2
+Xây dựng chương trình **Matrix Fun** có một đối tượng `MatrixFun` như sau:
+- Thuộc tính: Mảng 2 chiều matrix 8*8
+- Phương thức: 
+    + Phương thức `void init()` để nhập dữ liệu vào cho mảng matrix
+    + Phương thức `void findMax()` in ra phần tử bé nhất, lớn nhất, vị trí và số lần xuất hiện của phần tử đó. Ví dụ: 
+```
+7, (1;2), (2;4), (6;4)
+Số lần xuất hiện: 3
+
+1, (1;3), (5;7), (5;3)
+Số lần xuất hiện: 3
+```
+
+> ### Yêu cầu: 
+Áp dụng tính chất của lập trình hướng đối tượng để xây dựng chương trình
+
+---
 # Bài 3
 Một ứng dụng quản lý rạp chiếu phim. Người quản lý có 2 thuộc tính đó là **danh sách phim** và **danh sách phòng chiếu**.
 
