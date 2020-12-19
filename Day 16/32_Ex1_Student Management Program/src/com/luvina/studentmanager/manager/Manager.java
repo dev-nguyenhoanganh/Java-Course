@@ -66,10 +66,7 @@ public class Manager {
 	 * @return
 	 */
 	public String addStudent(Student newStu) {
-		if (list == null) {
-			this.list.add(newStu);
-			return "\nThêm thành công";
-		} else if (list.contains(newStu)) {
+		if (list.contains(newStu)) {
 			return "\nĐã tồn tại học sinh này";
 		} else {
 			this.list.add(newStu);

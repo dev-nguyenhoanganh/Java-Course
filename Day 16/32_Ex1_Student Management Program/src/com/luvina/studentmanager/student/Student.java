@@ -35,7 +35,7 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "[" + id + "] " + name + " | " + gender + "_" + age + "_" + score;
+		return "[" + id + "] " + name + " \t\t " + gender + "_" + age + "_" + score;
 	}
 
 	/**

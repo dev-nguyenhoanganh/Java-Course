@@ -21,7 +21,7 @@ public class Main {
 
 		man.addTask(new Task("Gấp chăn màn", "5h15"));
 		man.addTask(new Task("Nấu cơm", "1h6"));
-		man.addTask(new Task("Rửa bát", "1h13"));
+		man.addTask(new Task("Rửa bát", "11h03"));
 		man.display();
 
 		String result = man.modifyTask(new Task("Rửa bát", "12h00"));
