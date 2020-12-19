@@ -12,7 +12,7 @@ public class Student implements Comparable <Student> {
 	private String id;
 	private String name;
 	private int score;
-	private int age;
+	// private int age;
 
 	/**
 	 * Phương thức khởi tạo giá trị cho các thuộc tính của đối tượng
