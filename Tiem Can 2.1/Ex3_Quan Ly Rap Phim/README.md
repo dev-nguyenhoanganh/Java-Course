@@ -52,4 +52,6 @@ Chú ý các phương thức tìm kiếm phim, tìm kiếm phòng chiếu, đặ
             <li>Lịch chiếu
         <td>
             <li>Getter & Setter các thuộc tính
+            <li>toString()
+            <li>equals()
 </table>

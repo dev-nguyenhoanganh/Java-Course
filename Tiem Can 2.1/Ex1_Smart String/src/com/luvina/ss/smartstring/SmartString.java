@@ -13,15 +13,18 @@ import java.util.regex.Pattern;
 public class SmartString {
 	private String text;
 	private static final String REGEX_LENGTH 	  = "^\\w{6,8}$";
-	private static final String REGEX_UPPER_LOWER = "[a-z|A-Z].*";
+	private static final String REGEX_UPPER_LOWER = "(?=.*[A-Z])(?=.*[a-z]).*";
 	private static final String REGEX_DIGIT 	  = "[\\D].*[\\d].*";
 	
-	
+	public SmartString() {
+		this.text = "";
+	}
+
 	/**
 	 * 
 	 */
-	public SmartString() {
-		
+	public SmartString(String text) {
+		this.text = text;
 	}
 
 	public int countCharacter(String text) {
@@ -42,7 +45,24 @@ public class SmartString {
 		return count;
 	}
 
-	public String checkPassword(String text) {
+	public String checkPassword(String text){
+		String result = "";
+		if(isRegexConditionOk(text)) {
+			for(int i = 0; i < text.length(); i++) {
+				result += text.charAt(i) + " ";
+			}
+		} else {
+			return "Không thỏa mãn định dạng";
+		}
+		return result;
+	}
+
+	/**
+	 * 
+	 * @param text
+	 * @return
+	 */
+	public String findPassword(String text) {
 		String result = "";
 		for(int i = 0; i < text.length(); i++) {
 			if(i + 6 > text.length()) {
@@ -50,7 +70,7 @@ public class SmartString {
 			}
 
 			char ch = text.charAt(i);
-			if(Pattern.matches(REGEX_UPPER_LOWER, "" + ch)) {
+			if(Pattern.matches("[a-zA-Z]", "" + ch)) {
 				String temp = text.substring(i, i + 6);
 				if(isRegexConditionOk(temp)) {
 					result += " " + temp;
@@ -58,10 +78,13 @@ public class SmartString {
 			}
 		}
 
+		if(result.isEmpty()) {
+			return "Không có mật khẩu thỏa mãn";
+		}
 		return result;
 	}
 
-	public boolean isRegexConditionOk(String text) {
-		return Pattern.matches(REGEX_LENGTH, text) && Pattern.matches(REGEX_DIGIT, text);
+	private boolean isRegexConditionOk(String text) {
+		return Pattern.matches(REGEX_UPPER_LOWER, text) && Pattern.matches(REGEX_DIGIT, text) && Pattern.matches(REGEX_LENGTH, text);
 	}
 }
