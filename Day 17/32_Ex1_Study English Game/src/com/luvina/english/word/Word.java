@@ -16,12 +16,46 @@ public class Word {
 	 * 
 	 */
 	public Word(String word, String vnMean) {
-		
+		this.word   = word;
+		this.vnMean = vnMean;
 	}
 
 	@Override
 	public String toString() {
-		return word + " - " + vnMean;
+		return "* " + word + "  \t\t" + vnMean;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		Word object = (Word) obj;
+		return object.word.equals(this.word);
+	}
+
+	/**
+	 * @return the word
+	 */
+	public String getWord() {
+		return word;
+	}
+
+	/**
+	 * @param word the word to set
+	 */
+	public void setWord(String word) {
+		this.word = word;
+	}
+
+	/**
+	 * @return the vnMean
+	 */
+	public String getVnMean() {
+		return vnMean;
+	}
+
+	/**
+	 * @param vnMean the vnMean to set
+	 */
+	public void setVnMean(String vnMean) {
+		this.vnMean = vnMean;
+	}
 }

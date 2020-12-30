@@ -120,25 +120,25 @@ public class MatrixFun {
 		System.out.println(resultMax1 + "\n\n" + resultMax3);
 	}
 
-	public void find() {
-		int max1 = findMax();
-		int max3 = findMax(max1);
-		max3 = findMax(max3);
-		String result = max1 + ", ";
-
-		for (int i = 0; i < matrix.length; i++) {
-			for (int j = 0; j < matrix[0].length; j++) {
-				if (max1 == matrix[i][j]) {
-
-				}
-
-				if (max3 == matrix[i][j]) {
-
-				}
-			}
-		}
-
-	}
+//	public void find() {
+//		int max1 = findMax();
+//		int max3 = findMax(max1);
+//		max3 = findMax(max3);
+//		String result = max1 + ", ";
+//
+//		for (int i = 0; i < matrix.length; i++) {
+//			for (int j = 0; j < matrix[0].length; j++) {
+//				if (max1 == matrix[i][j]) {
+//
+//				}
+//
+//				if (max3 == matrix[i][j]) {
+//
+//				}
+//			}
+//		}
+//
+//	}
 
 	public int findMax() {
 		int max1 = matrix[0][0];
