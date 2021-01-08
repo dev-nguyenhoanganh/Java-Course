@@ -13,15 +13,15 @@ import com.luvina.string.exception.CheckStringException;
  * @version 1.0
  */
 public class Main {
-	private final static String REGEX_INTEGER = "^([0-9]+)|(\\-[0-9]+)$";
-	private final static String REGEX_REAL = "^(\\d+[\\.|\\,]\\d+)|(\\-\\d+[\\.|\\,]\\d+)$";
+	private final static String REGEX_INTEGER = "^-?\\d+$";
+	private final static String REGEX_REAL = "-?\\d+([\\.\\,\\+\\/]\\d+)?";
 
 	/**
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		String str = "false";
+		String str = "-123";
 		String result = "";
 
 		try {
@@ -31,9 +31,6 @@ public class Main {
 		}
 
 		System.out.println(result);
-
-		double s = Double.parseDouble("2/3");
-		System.out.println(s);
 	}
 
 	public static String checkString(String str) throws CheckStringException {
