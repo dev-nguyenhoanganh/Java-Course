@@ -22,18 +22,18 @@ Phân tích bài toán
                 <li> Tìm kiếm User
         <tr>
             <td> User 
-            <td> <code>
-                <li> userID <br> 
-				<li> name<br>
-				<li> date<br>
-				<li> account<br>
-				<li> pass<br>
-				<li> priorityLevel
-                <li> IuserAction event
+            <td>
+                <li> <code>userID</code><br> 
+				<li> <code>name</code><br>
+				<li> <code>date</code><br>
+				<li> <code>account</code><br>
+				<li> <code>pass</code><br>
+				<li> <code>priorityLevel</code>
+                <li> <code>IuserAction</code> event
             <td> 
-                <li> Interface<ul><code>
-                    <li> Đăng nhập
-                    <li> Đăng ký</code></ul>
+                <li>Interface<ul>
+                    <li><code>Đăng nhập</code>
+                    <li><code>Đăng ký</code></ul>
                 <li>Ghi File
                 <li>Đọc file
         <tr>
