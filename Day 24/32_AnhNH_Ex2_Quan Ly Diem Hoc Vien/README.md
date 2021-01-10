@@ -31,11 +31,11 @@ Phân tích bài toán
 				<li> priorityLevel
                 <li> IuserAction event
             <td> 
-                <li> Interface <ul> <code>
+                <li> Interface<ul><code>
                     <li> Đăng nhập
-                    <li> Đăng ký</ul>
-                <li> </code> Ghi File
-                <li> Đọc file
+                    <li> Đăng ký</code></ul>
+                <li>Ghi File
+                <li>Đọc file
         <tr>
             <td> Teacher (Kế thừa <code>User</code>)
             <td>
