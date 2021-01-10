@@ -1,0 +1,2 @@
+ID = 1: Tên chưa được nhập, Tuổi không phải là số
+ID = 3: Tên chứa số

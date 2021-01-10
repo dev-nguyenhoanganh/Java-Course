@@ -27,15 +27,16 @@ Các bước ghi file:
 => Sử dụng `try - catch` khi đọc ghi file
 
 ```java
-    private void ghiFileArr(String input, String path) {
-		try {
+    private String ghiFileArr(String input, String path) {
+        String result = "";
+        try {
 			// 1 trỏ vào file
 			File file = new File(path);
 			// 2. Kiểm tra tồn tại
 			if (!file.exists()) {
 				file.getParentFile().mkdirs();
 				file.createNewFile();
-				System.out.println("Tạo file thành công");
+				result = "Tạo file thành công";
 			}
 			// 3. Mở File để ghi
 			FileOutputStream fO = new FileOutputStream(file);
@@ -44,8 +45,9 @@ Các bước ghi file:
 			// close
 			fO.close();
 		} catch (IOException e) {
-			System.out.println("Lỗi hệ thống !!!");
-		}
+			result = "Lỗi hệ thống !!!";
+        }
+        return result;
 	}
 ```
 
@@ -96,4 +98,39 @@ private String docFileArr(String path) {
                      -> | Đăng nhập : Đọc file và kiểm tra
 ```
 
-d
+
+Bài 2:
+
+Đối tượng
+
+
+Ảnh 
+- Thuộc tính: ID, Tên ảnh, dung lượng, thời gian, share(boolean)
+- Phương thức: 
+    + toString() 
+        `ID_Tên ảnh_Thời gian_Dung lượng_share`
+    + equals()
+        `ID.equals(obj.getID)`
+    + hienThi()
+        `"Tên : " + name + ". Thời gian : " + date + ". Dung lượng " + size`
+
+User
+- Thuộc tính: 
+```
+    + Họ tên     |
+    + SĐT        |
+    + Ngày Sinh  |  `accout.txt`
+    + Tài khoản  |
+    + Mật khẩu   |
+
+    + `ArrayList<Image>` danh sách ảnh,   |
+    + `ArrayList<User>` bạn bè            |  `Tên_đăng_nhập.txt`
+    + `ArrayList<User>` lời mời kết bạn   |
+    + `ArrayList<User>` người lạ          |
+```
+
+- Phương thức: 
+    + Ghi vào account.txt
+        `Họ tên_SĐT_Ngày sinh_Tài khoản_Mật khẩu \n`
+    + Ghi vào `Tên_đăng_nhập.txt`
+

@@ -1,0 +1,63 @@
+# Quản lý học sinh
+
+
+Phân tích bài toán
+
+<table>
+    <thead>
+        <tr>  
+            <th> Đối tượng
+            <th> Thuộc tính
+            <th> Phương thức
+    <tbody>            
+        <tr>
+            <td> Manager
+            <td> Danh sách người dùng
+            <td> 
+                <li> Đăng nhập
+                <li> Đăng ký 
+                <li> Thêm User
+                <li> Sửa User
+                <li> Xóa User
+                <li> Tìm kiếm User
+        <tr>
+            <td> User 
+            <td> <code>
+                <li> userID <br> 
+				<li> name<br>
+				<li> date<br>
+				<li> account<br>
+				<li> pass<br>
+				<li> priorityLevel
+                <li> IuserAction event
+            <td> 
+                <li> Interface <ul> <code>
+                    <li> Đăng nhập
+                    <li> Đăng ký</ul>
+                <li> </code> Ghi File
+                <li> Đọc file
+        <tr>
+            <td> Teacher (Kế thừa <code>User</code>)
+            <td>
+                <code>Kế thừa các thuộc tính từ User</code>
+                <br>
+                Danh sách học sinh
+            <td> 
+                <li> Thêm học sinh
+                <li> Sửa học sinh
+                <li> Xóa học sinh
+                <li> Hiển thị danh sách học sinh
+        <tr>
+            <td> Student (Kế thừa <code>User</code>)
+            <td> 
+                <code>Kế thừa các thuộc tính từ User</code><br>
+                <li> Điểm Toán
+                <li> Điểm Văn
+                <li> Điểm Anh
+                <li> Điểm trung bình
+                <li> Lớp
+            <td>
+                <li> Hiển thị thông tin cá nhân
+</table>
+
+

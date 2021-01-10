@@ -1,27 +1,25 @@
 /**
- * @Project_Name 32_Day 23_Ex1_Student Manager
+ * @Project_Name 32_Day 22_Ex1_Student Manager
  */
 package com.luvina.student.student;
 
 /**
  * @author Hoang Anh
- * @since 8 thg 1, 2021
- * @version 2.0
+ * @since 6 thg 1, 2021
+ * @version 1.0
  */
 public class Student {
 	private String studentName;
-	private String studentID;
 	private String score;
-	private String dateOfBirth;
+	private boolean validate;
 
 	/**
 	 * 
 	 */
-	public Student(String studentName, String studentID, String score, String dateOfBirth) {
+	public Student(String studentName, String score) {
 		this.studentName = studentName;
-		this.studentID = studentID;
 		this.score 		 = score;
-		this.dateOfBirth = dateOfBirth;
+		return;
 	}
 
 	@Override
@@ -66,31 +64,16 @@ public class Student {
 	}
 
 	/**
-	 * @return the idx
+	 * @return the validate
 	 */
-	public String getStudentID() {
-		return studentID;
+	public boolean isValidate() {
+		return validate;
 	}
 
 	/**
-	 * @param idx the idx to set
+	 * @param validate the validate to set
 	 */
-	public void setStudentID(String studentID) {
-		this.studentID = studentID;
+	public void setValidate(boolean validate) {
+		this.validate = validate;
 	}
-
-	/**
-	 * @return the dateOfBirth
-	 */
-	public String getDateOfBirth() {
-		return dateOfBirth;
-	}
-
-	/**
-	 * @param dateOfBirth the dateOfBirth to set
-	 */
-	public void setDateOfBirth(String dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
-
 }

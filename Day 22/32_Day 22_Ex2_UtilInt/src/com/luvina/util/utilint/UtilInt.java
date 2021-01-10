@@ -63,7 +63,7 @@ public class UtilInt {
 
 		for (int i = 0; i < idxInt.length; i++) {
 			if (!checkDuplicate.contains("" + arr[i])) {
-				String temp = findMultipleNumber(i);
+				String temp = findMultipleNumber(idxInt[i]);
 				if (temp.isEmpty()) {
 					continue;
 				}
