@@ -37,6 +37,16 @@ public class User {
 		this.priorityLevel = priorityLevel;
 	}
 
+	public User() {
+		this.userID	 = "";
+		this.name	 = "";
+		this.date	 = "";
+		this.account = "";
+		this.pass 	 = "";
+
+		this.priorityLevel = "";
+	}
+	
 	/**
 	 * 
 	 */
@@ -57,33 +67,41 @@ public class User {
 	@Override
 	public boolean equals(Object obj) {
 		User user = (User) obj;
-		return userID.equals(user.getUserID());
+		return account.equals(user.getAccount());
 	}
 
 	@Override
 	public String toString() {
-		return "\n    ID    : "  + userID 
-			+  "\n  Họ Tên  : "  + name 
-			+  "\nNgày sinh : "  + date;
+		return userID 		 + "_" 
+			+  name   		 + "_" 
+			+  date   		 + "_" 
+			+  account		 + "_" 
+			+  pass	   		 + "_"
+			+  priorityLevel + "\n";
 	}
 
 	/**
 	 * @return
 	 */
-	public String toFile() {
-		return userID  + "_" 
-			+  name    + "_" 
-			+  date    + "_" 
-			+  account + "_" 
-			+  pass	   + "\n";
+	public String toAccountFile() {
+		return userID 		 + "_" 
+			+  name   		 + "_" 
+			+  date   		 + "_" 
+			+  account		 + "_" 
+			+  pass	   		 + "_"
+			+  priorityLevel + "\n";
 	}
 
 	/**
 	 * 
 	 */
 	public String showData() {
-		return  "Tên       : " + name 
-			+ "\nNgày sinh : " + date; 
+		return  "     Tên      : " + name 
+			+ "\n  Ngày sinh   : " + date
+			+ "\nID Người dùng : " + userID
+			+ "\n  Tài khoản   : " + account
+			+ "\n  Phân quyền  : " + priorityLevel
+		; 
 	}
 
 	/**
@@ -91,7 +109,6 @@ public class User {
 	 * @return
 	 */
 	public String addStudent(Student newStudent) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

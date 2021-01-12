@@ -42,6 +42,8 @@ public class Console {
 	public Console() {
 		manager = new Manager();
 		input = new Scanner(System.in);
+		user = new User();
+		user.addEvent(manager);
 	}
 
 	public static void main(String[] args) {
@@ -52,7 +54,10 @@ public class Console {
 
 	public void wellcomePage() {
 		System.out.println("---------- Ứng dụng quản lý sinh viên ----------");
-		System.out.println("Vui lòng chọn:\n" + "[1] Đăng nhập\n" + "[2] Đăng ký\n" + "[0] Thoát chương trình");
+		System.out.println("Vui lòng chọn:\n" 
+						+  "[1] Đăng nhập\n" 
+						+  "[2] Đăng ký\n" 
+						+  "[0] Thoát chương trình");
 
 		String choose = getInput("[0-2]", "[0-2]");
 		switch (choose) {
@@ -68,23 +73,30 @@ public class Console {
 	}
 
 	public void signInPage() {
+//		user.addEvent(manager);
 		System.out.println("------------------ Đăng nhập -------------------");
 		System.out.print("Tài khoản: ");
 		String account = getInput(REGEX_ALL_CHAR, "tài khoản");
 
 		System.out.print("Mật khẩu: ");
 		String pass = getInput(REGEX_ALL_CHAR, "mật khẩu");
-
-		user = manager.signIn(account, pass);
-		String priority = user.getPriorityLevel();
-		if ("TEACHER".equals(priority)) {
-			managerPage((Teacher) user);
-		} else if ("STUDENT".equals(priority)) {
-			studentPage((Student) user);
-		} else {
-			System.err.println("Tài khoản hoặc mật khẩu nhập vào không đúng");
+		User tempUser = user.signIn(account, pass);
+		if ("".equals(tempUser.getAccount())) {
+			System.err.println("Đăng nhập không thành công");
 			pressToContinue();
 			wellcomePage();
+		} else {
+			System.err.println("Đăng nhập thành công");
+			String priority = tempUser.getPriorityLevel();
+			if ("TEACHER".equals(priority)) {
+				managerPage(tempUser);
+			} else if ("STUDENT".equals(priority)) {
+				studentPage(tempUser);
+			} else {
+				System.err.println("Tài khoản hoặc mật khẩu nhập vào không đúng");
+				pressToContinue();
+				wellcomePage();
+			}
 		}
 	}
 
@@ -107,9 +119,11 @@ public class Console {
 		System.out.print("Nhập mật khẩu : ");
 		pass = getInput(REGEX_PASS, "mật khẩu");
 
-		System.out.println(manager.addTeacher(new Teacher(account, name, date, account, pass)));
-//		student.signUp(studentName, studentID, dateOfBirth, "", pass, STUDENT);
-		signInPage();
+		User teacher = new Teacher(account, name, date, account, pass);
+		teacher.addEvent(manager);
+		teacher.signUp();
+		pressToContinue();
+		wellcomePage();
 	}
 
 	private static String getInput(String regex, String name) {
@@ -136,7 +150,7 @@ public class Console {
 		input.close();
 	}
 
-	public void managerPage(Teacher teacher) {
+	public void managerPage(User teacher) {
 		System.out.println("\n------------------------------------------------");
 		System.out.println(
 			   "[1] Thêm học sinh\r\n"
@@ -167,7 +181,7 @@ public class Console {
 		}
 	}
 
-	private static void getStudentInfor(Teacher teacher) {
+	private static void getStudentInfor(User teacher) {
 		System.out.println("\n----------------- Thêm học sinh -----------------");
 		String userID;
 		String account;
@@ -207,16 +221,16 @@ public class Console {
 		System.out.print("Nhập mật khẩu cho học sinh mới: ");
 		pass = getInput(REGEX_ALL_CHAR, "mật khẩu");
 
-//		System.err.println(
-//			manager.addStudent(new Student( userID,
-//										    name,
-//										    date,
-//										    account,
-//										    pass,
-//										 	mathScore,
-//											literatureScore,
-//											grade,
-//						englishScore), user));
+		System.err.println(
+			teacher.addStudent(new Student( userID,
+										    name,
+										    date,
+										    account,
+										    pass,
+										 	mathScore,
+											literatureScore,
+											grade,
+											englishScore)));
 		
 		System.out.print("Bạn có muốn nhập tiếp không [Y|N]? ");
 		String result = getInput("[Y|N|n|y]", "câu trả lời [Y|N]");
@@ -227,7 +241,7 @@ public class Console {
 		getStudentInfor(teacher);
 	}
 	
-	public void studentPage(Student student) {
+	public void studentPage(User student) {
 		System.out.println("------------------------------------------------");
 		System.out.println("Mời chọn: ");
 		System.out.println(
@@ -249,7 +263,7 @@ public class Console {
 		}
 	}
 
-	private static void removeStudent(Teacher teacher) {
+	private static void removeStudent(User teacher) {
 		System.out.print("Mã học sinh muốn xóa: ");
 		String studentID = getInput(REGEX_ALL_CHAR, "mã học sinh");
 //		System.err.println(manager.removeStudent(studentID));

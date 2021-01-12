@@ -12,7 +12,7 @@ Phân tích bài toán
     <tbody>            
         <tr>
             <td> Manager
-            <td> Danh sách người dùng
+            <td> Danh sách tất cả người dùng
             <td> 
                 <li> Đăng nhập
                 <li> Đăng ký 
@@ -20,6 +20,10 @@ Phân tích bài toán
                 <li> Sửa User
                 <li> Xóa User
                 <li> Tìm kiếm User
+                <li> Cấp quyền cho User
+                <br><br>
+                <li> Đọc File
+                <li> Ghi File
         <tr>
             <td> User 
             <td>
@@ -34,8 +38,7 @@ Phân tích bài toán
                 <li>Interface<ul>
                     <li><code>Đăng nhập</code>
                     <li><code>Đăng ký</code></ul>
-                <li>Ghi File
-                <li>Đọc file
+                <li>Tự động tạo ID
         <tr>
             <td> Teacher (Kế thừa <code>User</code>)
             <td>
@@ -47,6 +50,7 @@ Phân tích bài toán
                 <li> Sửa học sinh
                 <li> Xóa học sinh
                 <li> Hiển thị danh sách học sinh
+                <li> Sửa điểm theo mã học sinh
         <tr>
             <td> Student (Kế thừa <code>User</code>)
             <td> 

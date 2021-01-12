@@ -46,25 +46,17 @@ public class Student extends User {
 
 	@Override
 	public String toString() {
-		return "\nĐiểm Toán : " + mathScore 
-			+  "\nĐiểm Văn  : " + literatureScore 
-			+  "\nĐiểm Anh  : " + englishScore;
+		return super.toString();
 	}
 
 	@Override
-	public String toFile() {
-		return super.toFile() 
-							  + "_" + mathScore 
-							  + "_" + literatureScore 
-							  + "_" + englishScore + "\n";
+	public String toAccountFile() {
+		return super.toAccountFile() 
+					+ "_" + mathScore 
+					+ "_" + literatureScore 
+					+ "_" + englishScore + "\n";
 	}
 
-	/**
-	 * 
-	 */
-	public void convertString() {
-
-	}
 
 	@Override
 	public String showData() {

@@ -29,6 +29,7 @@ public class Teacher extends User {
 	// ------------------ User Interface -----------------	
 	@Override
 	public boolean signUp() {
+		listStudent = new ArrayList<Student>();
 		return super.signUp();
 	}
 
@@ -39,20 +40,17 @@ public class Teacher extends User {
 
 	// ------------------ Teacher Method -----------------	
 	@Override
-	public String toFile() {
+	public String toAccountFile() {
 		String result = "";
-//		for (Student student : listStudent) {
-//			result += "\n" + student.toFile();
-//		}
-		return super.toFile() + result;
+		for (Student student : listStudent) {
+			result += student.toAccountFile() + "\n";
+		}
+		return result;
 	}
 
 	@Override
 	public String toString() {
-
-		return super.toString()
-			+ ""
-		;
+		return super.toString();
 	}
 
 	@Override
@@ -64,4 +62,22 @@ public class Teacher extends User {
 		}
 		return "Thêm thành công";
 	}
+
+	// ----------------- Getter & Setter -----------------
+	/**
+	 * @return the listStudent
+	 */
+	public ArrayList<Student> getListStudent() {
+		return listStudent;
+	}
+
+	/**
+	 * @param listStudent the listStudent to set
+	 */
+	public void setListStudent(ArrayList<Student> listStudent) {
+		this.listStudent = listStudent;
+	}
+
+	
+	
 }
