@@ -41,19 +41,20 @@ public class Console {
 	 */
 	public Console() {
 		manager = new Manager();
-		input = new Scanner(System.in);
-		user = new User();
+		input 	= new Scanner(System.in);
+		user 	= new User();
 		user.addEvent(manager);
 	}
 
 	public static void main(String[] args) {
+
 		Console main = new Console();
 		main.wellcomePage();
 		main.close();
 	}
 
 	public void wellcomePage() {
-		System.out.println("---------- Ứng dụng quản lý sinh viên ----------");
+		System.out.println("\n---------- Ứng dụng quản lý sinh viên ----------");
 		System.out.println("Vui lòng chọn:\n" 
 						+  "[1] Đăng nhập\n" 
 						+  "[2] Đăng ký\n" 
@@ -82,16 +83,16 @@ public class Console {
 		String pass = getInput(REGEX_ALL_CHAR, "mật khẩu");
 		User tempUser = user.signIn(account, pass);
 		if ("".equals(tempUser.getAccount())) {
-			System.err.println("Đăng nhập không thành công");
+			System.err.println("Tài khoản hoặc mật khẩu không đúng");
 			pressToContinue();
 			wellcomePage();
 		} else {
 			System.err.println("Đăng nhập thành công");
 			String priority = tempUser.getPriorityLevel();
 			if ("TEACHER".equals(priority)) {
-				managerPage(tempUser);
+				teacherPage((Teacher) tempUser);
 			} else if ("STUDENT".equals(priority)) {
-				studentPage(tempUser);
+				studentPage((Student) tempUser);
 			} else {
 				System.err.println("Tài khoản hoặc mật khẩu nhập vào không đúng");
 				pressToContinue();
@@ -108,50 +109,28 @@ public class Console {
 		String pass;
 
 		System.out.print("Nhập tên của bạn: ");
-		name = getInput(REGEX_NAME, "họ và tên");
+		name = getInput(REGEX_NAME, "Lưu ý họ và tên không chứa số");
 
 		System.out.print("Nhập ngày/tháng/năm sinh của bạn: ");
-		date = getInput(REGEX_DATE, "ngày/tháng/năm");
+		date = getInput(REGEX_DATE, "Lưu ý, phải đúng định dạng ngày/tháng/năm");
 
 		System.out.print("Nhập tên tài khoản: ");
-		account = getInput(REGEX_ALL_CHAR, "tên tài khoản");
+		account = getInput(REGEX_ID, "Lưu ý, tên tài khoản không được ít hơn 5 ký tự");
 
 		System.out.print("Nhập mật khẩu : ");
-		pass = getInput(REGEX_PASS, "mật khẩu");
+		pass = getInput(REGEX_PASS, "Lưu ý, mật khẩu không được ít hơn 8 ký tự");
 
-		User teacher = new Teacher(account, name, date, account, pass);
+		User teacher = new Teacher(name, date, account, pass);
 		teacher.addEvent(manager);
-		teacher.signUp();
+		System.err.println(teacher.signUp());
 		pressToContinue();
 		wellcomePage();
 	}
 
-	private static String getInput(String regex, String name) {
-		String result = "";
-		while (true) {
-			result = input.nextLine().trim();
-			if (regex.isEmpty()) {
-				return result;
-			}
-			if (result.matches(regex)) {
-				return result;
-			}
-			System.err.print("Bạn đã nhập sai định dạng rồi :v" + "\nMời nhập lại " + name + ": ");
-		}
-	}
-
-	private void pressToContinue() {
-		System.out.print("Nhấn phím bất kỳ để tiếp tục ! ");
-		input.nextLine();
-	}
-	
-	public void close() {
-		System.err.println("Chương trình đã đóng");
-		input.close();
-	}
-
-	public void managerPage(User teacher) {
-		System.out.println("\n------------------------------------------------");
+	public void teacherPage(Teacher teacher) {
+		teacher.addEvent(manager);
+		System.out.println("\n------------------ Giáo viên ------------------");
+		System.out.println("Xin chào " + teacher.getName());
 		System.out.println(
 			   "[1] Thêm học sinh\r\n"
 			+  "[2] Xóa học sinh\r\n"
@@ -163,17 +142,17 @@ public class Console {
 		switch (choose) {
 		case "1":
 			getStudentInfor(teacher);
-			managerPage(teacher);
+			teacherPage(teacher);
 			break;
 		case "2":
 			removeStudent(teacher);
 			pressToContinue();
-			managerPage(teacher);
+			teacherPage(teacher);
 			break;
 		case "3":
-//			manager.display();
+			System.out.println(teacher.showData());
 			pressToContinue();
-			managerPage(teacher);
+			teacherPage(teacher);
 			break;
 		case "0":
 			wellcomePage();
@@ -181,68 +160,8 @@ public class Console {
 		}
 	}
 
-	private static void getStudentInfor(User teacher) {
-		System.out.println("\n----------------- Thêm học sinh -----------------");
-		String userID;
-		String account;
-		String name;
-		String date;
-		String pass;
-		String mathScore;
-		String literatureScore; 
-		String englishScore;
-		String grade;
-
-
-		System.out.print("Nhập tên học sinh: ");
-		name = getInput(REGEX_NAME, "tên học sinh");
-
-		System.out.print("Nhập ngày/tháng/năm sinh của học sinh: ");
-		date = getInput(REGEX_DATE, "ngày/tháng/năm");
-
-		System.out.print("Nhập điểm Toán: ");
-		mathScore = getInput(REGEX_SCORE, "điểm");
-
-		System.out.print("Nhập điểm Văn: ");
-		literatureScore = getInput(REGEX_SCORE, "điểm");
-
-		System.out.print("Nhập điểm Anh: ");
-		englishScore = getInput(REGEX_SCORE, "điểm");
-
-		System.out.print("Nhập mã học sinh: ");
-		userID = getInput(REGEX_ALL_CHAR, "mã học sinh");
-
-		System.out.print("Tài khoản cho học sinh: ");
-		account = getInput(REGEX_ID, "tài khoản");
-
-		System.out.print("Nhập lớp học sinh: ");
-		grade = getInput(REGEX_ALL_CHAR, "lớp");
-
-		System.out.print("Nhập mật khẩu cho học sinh mới: ");
-		pass = getInput(REGEX_ALL_CHAR, "mật khẩu");
-
-		System.err.println(
-			teacher.addStudent(new Student( userID,
-										    name,
-										    date,
-										    account,
-										    pass,
-										 	mathScore,
-											literatureScore,
-											grade,
-											englishScore)));
-		
-		System.out.print("Bạn có muốn nhập tiếp không [Y|N]? ");
-		String result = getInput("[Y|N|n|y]", "câu trả lời [Y|N]");
-
-		if ("N".equals(result) || "n".equals(result)) {
-			return;
-		}
-		getStudentInfor(teacher);
-	}
-	
-	public void studentPage(User student) {
-		System.out.println("------------------------------------------------");
+	public void studentPage(Student student) {
+		System.out.println("------------------- Sinh viên -------------------");
 		System.out.println("Mời chọn: ");
 		System.out.println(
 			   "[1] Hiển thị thông tin\r\n"
@@ -263,9 +182,98 @@ public class Console {
 		}
 	}
 
-	private static void removeStudent(User teacher) {
+	public void close() {
+		input.close();
+		System.err.println("Chương trình đã đóng");
+	}
+
+	// ----------------- Private Method -----------------
+
+	private static String getInput(String regex, String name) {
+		String result = "";
+		while (true) {
+			result = input.nextLine().trim();
+			if (result.isEmpty() && REGEX_SCORE.equals(regex)) {
+				return "0";
+			}
+			if (regex.isEmpty()) {
+				return result;
+			}
+			if (result.matches(regex)) {
+				return result;
+			}
+			System.err.println("Bạn đã nhập sai định dạng rồi! Mời nhập lại :");
+			System.out.print(name + ": ");
+		}
+	}
+	
+	private static void getStudentInfor(Teacher teacher) {
+		System.out.println("\n----------------- Thêm học sinh -----------------");
+		String account;
+		String name;
+		String date;
+		String pass;
+		String mathScore;
+		String literatureScore; 
+		String englishScore;
+		String grade;
+
+		System.out.print("Nhập tên học sinh: ");
+		name = getInput(REGEX_NAME, "Lưu ý họ và tên không chứa số");
+
+		System.out.print("Nhập ngày/tháng/năm sinh của học sinh: ");
+		date = getInput(REGEX_DATE, "Lưu ý, phải đúng định dạng ngày/tháng/năm");
+
+		System.out.print("Tài khoản cho học sinh: ");
+		account = getInput(REGEX_ID, "Lưu ý, tên tài khoản không được ít hơn 5 ký tự");
+
+		System.out.print("Nhập mật khẩu cho học sinh mới: ");
+		pass = getInput(REGEX_PASS, "Lưu ý, mật khẩu không được ít hơn 8 ký tự");
+
+		System.out.print("Nhập lớp học sinh: ");
+		grade = getInput(REGEX_ALL_CHAR, "lớp");
+
+		System.out.print("Nhập điểm Toán: ");
+		mathScore = getInput(REGEX_SCORE, "Lưu ý, điểm phải là số thực dương ví dụ như - 8.5");
+
+		System.out.print("Nhập điểm Văn: ");
+		literatureScore = getInput(REGEX_SCORE, "Lưu ý, điểm phải là số thực dương ví dụ như - 8.5");
+
+		System.out.print("Nhập điểm Anh: ");
+		englishScore = getInput(REGEX_SCORE, "Lưu ý, điểm phải là số thực dương ví dụ như - 8.5");
+
+		if(( teacher.addStudent( new Student(name,
+										    date,
+										    account,
+										    pass,
+										 	mathScore,
+											literatureScore,
+											englishScore,
+											grade)))) {
+			System.out.println("Tạo tài khoản thành công");
+		} else {
+			System.out.println("Tạo tài khoản không thành công");
+		}
+		
+		System.out.print("Bạn có muốn nhập tiếp không [Y|N]? ");
+		String result = getInput("[Y|N|n|y]", "câu trả lời [Y|N]");
+
+		if ("N".equals(result) || "n".equals(result)) {
+			return;
+		}
+		getStudentInfor(teacher);
+	}
+
+	private static void removeStudent(Teacher teacher) {
 		System.out.print("Mã học sinh muốn xóa: ");
 		String studentID = getInput(REGEX_ALL_CHAR, "mã học sinh");
-//		System.err.println(manager.removeStudent(studentID));
+		if (teacher.removeStudent(studentID)) {
+			System.err.println("Xóa thành công");
+		}
+	}
+
+	private void pressToContinue() {
+		System.out.print("Nhấn phím bất kỳ để tiếp tục ! ");
+		input.nextLine();
 	}
 }

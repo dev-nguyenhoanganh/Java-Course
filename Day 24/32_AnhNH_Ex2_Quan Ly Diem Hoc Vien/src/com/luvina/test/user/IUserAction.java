@@ -10,8 +10,7 @@ package com.luvina.test.user;
  */
 public interface IUserAction {
 
-    public boolean signUp(String userID, 
-						  String name, 
+	public String signUp( String name, 
 						  String date, 
 						  String account, 
 						  String pass,
@@ -19,4 +18,7 @@ public interface IUserAction {
 
 	public User signIn(String userID, String pass);
 
+	public boolean addStudent(Student newStudent, User teacher);
+
+	public boolean removeStudent(String studentID, User teacher);
 }

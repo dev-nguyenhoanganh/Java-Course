@@ -34,36 +34,40 @@ public class Manager implements IUserAction {
 	}
 	
 	// ----------------- User Interface -----------------
-	public boolean signUp(String userID, 
-						  String name, 
+	public String signUp( String name, 
 						  String date, 
 						  String account, 
 						  String pass,
-						  String priorityLevel) {
+						  String priorityLevel ) {
 
-		User user = new Teacher(userID, name, date, account, pass);
+		User user = new Teacher(name, date, account, pass);
 		
 		if (listUser.contains(user)) {
-			System.err.println("Tài khoản đã tồn tại");
-			return false;
+			return "Tài khoản đã tồn tại";
 		}
-		listUser.add(user);
-		String result = convertListToFile();
-		writeToFile("", SRC + user.getAccount() + ".txt");
 
-		if ("Ghi thành công".equals(result)) {
-			System.out.println("Tạo tài khoản thành công");
-		} else if ("Lỗi hệ thống !!!".equals(result)) {
-			System.err.println("Lỗi hệ thống !!!");
+		// Thêm vào list và Ghi File
+		listUser.add(user);
+		boolean result1 = convertListToFile();
+		boolean result2 = writeToFile("", SRC + user.getAccount() + ".txt");
+
+		// Xử lý kết quả và trả về
+		if (result1 && result2) {
+			return "Tạo tài khoản thành công";
+		} else {
+			return "Lỗi hệ thống !!!";
 		}
-		return false;
 	}
 
 	public User signIn(String account, String pass) {
 		for (User user : listUser) {
-			if (user.getPass().equals(pass)) {
-				if (user.getAccount().equals(account)) {
-					return user;
+			if (user.getAccount().equals(account)) {
+				if (user.getPass().equals(pass)) {
+					if("TEACHER".equals(user.getPriorityLevel())) {
+						return new Teacher(user, convertFileToTeacher(account));
+					} else if ("STUDENT".equals(user.getPriorityLevel())) {
+						return convertFileToStudent(account);
+					}
 				}
 			}
 		}
@@ -79,48 +83,49 @@ public class Manager implements IUserAction {
 		if (listUser.contains(newUser)) {
 			return "Thêm không thành công\nĐã tồn tại người dùng này";
 		}
+
 		listUser.add(newUser);
 
 		// Tạo file riêng cho từng tài khoản
-		writeToFile(newUser.toAccountFile(), SRC + newUser.getAccount() + ".txt");
+		boolean condition1 = writeToFile(newUser.toAccountFile(), SRC + newUser.getAccount() + ".txt");
 
 		// Thêm tài khoản mới vào file account tổng
-		convertListToFile();
-		return "Thêm thành công";
+		boolean condition2 = convertListToFile();
+		if(condition1 && condition2) {
+			return "Thêm thành công";
+		} 
+		return "Lỗi hệ thống !!!";
 	}
 	
 	/**
 	 * 
 	 */
-	public String addStudent(Student newStudent, Teacher teacher) {
-		String result = teacher.addStudent(newStudent);
-		if ("Thêm thành công".equals(result)) {
-			listUser.add(newStudent);
-			writeToFile(teacher.toString(), SRC + teacher.getAccount() + ".txt");
-			convertListToFile();
-			return result;
-		}
-
-		return "Thêm không thành công";
+	public boolean addStudent(Student newStudent, User teacher) {
+		listUser.add(newStudent);
+		convertListToFile();
+		writeToFile(newStudent.toAccountFile(), SRC + newStudent.getAccount() + ".txt");
+		return writeToFile(teacher.toAccountFile(), SRC + teacher.getAccount() + ".txt");
 	}
 
-	public User findStudentByAccount(String account) {
-		for (User student : listUser) {
-			if (account.equals(student.getUserID())) {
-				return student;
-			}
-		}
-		return null;
-	}
-
-	public String removeStudent(String studentID, String account) {
+	public boolean removeStudent(String studentID, User teacher) {
 		int idx = listUser.indexOf(new User(studentID, "", "", "", "", ""));
+		String fileName = listUser.get(idx).getAccount() + ".txt";
+		
+		// Check trong file account.txt
 		if (idx == -1) {
-			return "Không tồn tại học sinh cần xóa";
+			return false;
 		}
 		listUser.remove(idx);
-		convertListToFile();
-		return "Xóa thành công";
+
+		// Cập nhật lại danh sách User và danh sách học sinh bên trong Teacher
+		if (convertListToFile()) {
+			if (writeToFile(teacher.toAccountFile(), SRC + teacher.getAccount() + ".txt")) {
+				if (deleteFile(SRC + fileName)) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	// ----------------- Read and Write File -----------------
@@ -135,8 +140,13 @@ public class Manager implements IUserAction {
 			ArrayList<User> list = new ArrayList<User>();
 			for (int i = 0; i < dataLine.length; i++) {
 				String[] studentInfor = dataLine[i].split("_");
-				User student = new User(studentInfor[0], studentInfor[1], studentInfor[2], studentInfor[3],
-						studentInfor[4], studentInfor[5]);
+				User student = new User(studentInfor[0], 
+										studentInfor[1], 
+										studentInfor[2], 
+										studentInfor[3],
+										studentInfor[4], 
+										studentInfor[5]);
+				
 				list.add(student);
 			}
 			return list;
@@ -145,24 +155,56 @@ public class Manager implements IUserAction {
 		}
 	}
 
-	// private ArrayList<User> convertFileToUser(String path) {
-	// 	try {
-	// 		String data = readFile(path);
-	// 		String[] dataLine = data.split("\n");
-	// 		ArrayList<User> listStudent = new ArrayList<User>();
-	// 		for (int i = 0; i < dataLine.length; i++) {
-	// 			String[] userInfor = dataLine[i].split("_");
-	// 			User user = new User(userInfor[0], userInfor[1], userInfor[2], userInfor[3],
-	// 					userInfor[4], userInfor[5]);
-	// 			listStudent.add(user);
-	// 		}
-	// 		return listStudent;
-	// 	} catch (Exception e) {
-	// 		return new ArrayList<User>();
-	// 	}
-	// }
+	private ArrayList<Student> convertFileToTeacher(String account) {
+		try {
+			String data = readFile(SRC + account + ".txt");
+			if(data != null) {
+				String[] dataLine = data.split("\n");
+				ArrayList<Student> list = new ArrayList<Student>();
+				for (int i = 0; i < dataLine.length; i++) {
+					String[] student = dataLine[i].split("_");
+					Student stu = new Student(student[0],
+											  student[1], 
+											  student[2],
+											  student[3], 
+											  student[4],
+											  student[6],
+											  student[7],
+											  student[8], 
+											  student[9]);
+					list.add(stu);
+				}
+				return list;
+			}
+			return new ArrayList<Student>();
+		} catch (Exception e) {
+			return new ArrayList<Student>();
+		}
+	}
 
-	public String convertListToFile() {
+	private Student convertFileToStudent(String account) {
+		try {
+			String data = readFile(SRC + account + ".txt");
+			if (!data.isEmpty()) {
+				data = data.trim();
+				String[] student = data.split("_");
+					return new Student( student[0],
+										student[1], 
+										student[2],
+										student[3], 
+										student[4],
+										student[6],
+										student[7],
+										student[8], 
+										student[9]);
+			}
+			return new Student("", "", "", "", "", "", "", "");
+		} catch (Exception e) {
+			return new Student("", "", "", "", "", "", "", "");
+		}
+	}
+
+	public boolean convertListToFile() {
 		String data = "";
 		for (User user : listUser) {
 			data += user.toString();
@@ -181,7 +223,6 @@ public class Manager implements IUserAction {
 			File file = new File(path);
 			// 2. Kiểm tra tồn tại
 			if (!file.exists()) {
-				System.out.println("File cần đọc không tồn tại.");
 				return null;
 			}
 			// 3. Mở File để đọc
@@ -199,7 +240,7 @@ public class Manager implements IUserAction {
 		return data;
 	}
 
-	private String writeToFile(String input, String path) {
+	private boolean writeToFile(String input, String path) {
 		try {
 			// 1 trỏ vào file
 			File file = new File(path);
@@ -215,8 +256,19 @@ public class Manager implements IUserAction {
 			// close
 			fO.close();
 		} catch (IOException e) {
-			return "Lỗi hệ thống !!!";
+			return false;
 		}
-		return "Ghi thành công";
+		return true;
+	}
+	
+	private boolean deleteFile(String path) {
+		try {
+			File file = new File(path);
+			return file.delete();
+		}  
+		catch(Exception e)  
+		{  
+			return false;
+		}
 	}
 }

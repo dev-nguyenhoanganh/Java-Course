@@ -14,7 +14,7 @@ public class Teacher extends User {
 	ArrayList<Student> listStudent;
 
 	/**
-	 * 
+	 * Phương thức khởi tạo nhập ID
 	 */
 	public Teacher (String userID, 
 					String name, 
@@ -26,9 +26,39 @@ public class Teacher extends User {
 		listStudent = new ArrayList<Student>();
 	}
 
+	/**
+	 * Phương thức khởi tạo dùng thông tin của 1 user và 1 list học sinh
+	 */
+	public Teacher (User user, ArrayList<Student> list) {
+		this.userID  = user.getUserID();
+		this.name 	 = user.getName();
+		this.date	 = user.getDate();
+		this.account = user.getAccount();
+		this.pass    = user.getPass();
+		
+		this.priorityLevel = "TEACHER";
+		this.listStudent   = (ArrayList<Student>) list.clone();
+	}
+
+	/**
+	 * Phương thức khởi tạo tự tạo ID
+	 * @param name
+	 * @param date
+	 * @param account
+	 * @param pass
+	 */
+	public Teacher (String name, 
+					String date, 
+					String account, 
+					String pass) {
+
+		super(name, date, account, pass, "TEACHER");
+		listStudent = new ArrayList<Student>();
+	}
+
 	// ------------------ User Interface -----------------	
 	@Override
-	public boolean signUp() {
+	public String signUp() {
 		listStudent = new ArrayList<Student>();
 		return super.signUp();
 	}
@@ -38,12 +68,40 @@ public class Teacher extends User {
 		return (Teacher) super.signIn(account, pass);
 	}
 
+	@Override
+	public boolean addStudent(Student newStudent) {
+		if (listStudent.contains(newStudent)) {
+			return false;
+		} else {
+			listStudent.add(newStudent);
+		}
+		super.addStudent(newStudent);
+		return true;
+	}
+
+	public boolean removeStudent(String studentID) {
+		if (studentID.isEmpty()) {
+			return false;
+		}
+		int index = -1;
+		for (Student student : listStudent) {
+			if (studentID.equals(student.getUserID())) {
+				index = listStudent.indexOf(student);
+			}
+		}
+		if (index == -1) {
+			return false;
+		}
+		listStudent.remove(index);
+		return super.removeStudent(studentID);
+	}
+
 	// ------------------ Teacher Method -----------------	
 	@Override
 	public String toAccountFile() {
 		String result = "";
 		for (Student student : listStudent) {
-			result += student.toAccountFile() + "\n";
+			result += student.toAccountFile();
 		}
 		return result;
 	}
@@ -54,14 +112,23 @@ public class Teacher extends User {
 	}
 
 	@Override
-	public String addStudent(Student newStudent) {
-		if (listStudent.contains(newStudent)) {
-			return "Thêm không thành công\nĐã tồn tại học sinh này";
-		} else {
-			listStudent.add(newStudent);
-		}
-		return "Thêm thành công";
+	public boolean equals(Object obj) {
+		return super.equals(obj);
 	}
+
+	@Override
+	public String showData() {
+		String result = "\nSố lượng học sinh quản lý - " + listStudent.size();
+		for (Student student : listStudent) {
+			result += "\n" + student.getName() + "\n";
+			result += student.showData() + "\n";
+		}
+		if (result.isEmpty()) {
+			return "Danh sách rỗng";
+		}
+		return result;
+	}
+
 
 	// ----------------- Getter & Setter -----------------
 	/**

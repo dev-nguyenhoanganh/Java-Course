@@ -3,23 +3,24 @@
  */
 package com.luvina.test.user;
 
+
 /**
  * @author Hoang Anh
  * @since 9 thg 1, 2021
  * @version 1.0
  */
 public class User {
-	private String userID;
-	private String name;
-	private String date;
-	private String account;
-	private String pass;
-	private String priorityLevel;
+	protected String userID;
+	protected String name;
+	protected String date;
+	protected String account;
+	protected String pass;
+	protected String priorityLevel;
 
 	private IUserAction event;
 
 	/**
-	 * 
+	 * Khởi tạo có tham số đầy đủ
 	 */
 	public User(String 		userID, 
 				String 		name, 
@@ -37,6 +38,32 @@ public class User {
 		this.priorityLevel = priorityLevel;
 	}
 
+	/**
+	 * Khởi tạo tự tạo ID
+	 * @param name
+	 * @param date
+	 * @param account
+	 * @param pass
+	 * @param priorityLevel
+	 */
+	public User(String 	name, 
+				String 	date, 
+				String 	account, 
+				String 	pass,
+				String 	priorityLevel) {
+					
+		this.userID	 = "ID-2021-" + account;
+		this.name	 = name;
+		this.date	 = date;
+		this.account = account;
+		this.pass 	 = pass;
+
+		this.priorityLevel = priorityLevel;
+	}
+
+	/**
+	 * Khởi tạo không tham số
+	 */
 	public User() {
 		this.userID	 = "";
 		this.name	 = "";
@@ -47,6 +74,8 @@ public class User {
 		this.priorityLevel = "";
 	}
 	
+	
+	// ------------------ Interface -----------------
 	/**
 	 * 
 	 */
@@ -54,20 +83,31 @@ public class User {
 		this.event = event;
 	}
 
-	// ------------------ Interface -----------------
-	public boolean signUp() {
-		return event.signUp(userID, name, date, account, pass, priorityLevel);
+	public String signUp() {
+		return event.signUp(name, date, account, pass, priorityLevel);
 	}
 
 	public User signIn(String account, String pass) {
 		return event.signIn(account, pass);
 	}
 
+	/**
+	 * @param newStudent
+	 * @return
+	 */
+	public boolean addStudent(Student newStudent) {
+		return event.addStudent(newStudent, this);
+	}
+
+	public boolean removeStudent(String studentID) {
+		return event.removeStudent(studentID, this);
+	}
+
 	// ----------------- User Method -----------------
 	@Override
 	public boolean equals(Object obj) {
 		User user = (User) obj;
-		return account.equals(user.getAccount());
+		return userID.equals(user.getUserID());
 	}
 
 	@Override
@@ -89,27 +129,20 @@ public class User {
 			+  date   		 + "_" 
 			+  account		 + "_" 
 			+  pass	   		 + "_"
-			+  priorityLevel + "\n";
+			+ priorityLevel;
 	}
 
 	/**
 	 * 
 	 */
 	public String showData() {
-		return  "     Tên      : " + name 
-			+ "\n  Ngày sinh   : " + date
-			+ "\nID Người dùng : " + userID
-			+ "\n  Tài khoản   : " + account
-			+ "\n  Phân quyền  : " + priorityLevel
+		return  "- Tên         : " + name 
+			+ "\n- Ngày sinh   : " + date
+			+ "\n- ID          : " + userID
+			+ "\n- Tài khoản   : " + account
+			+ "\n- Phân quyền  : " + priorityLevel
+		
 		; 
-	}
-
-	/**
-	 * @param newStudent
-	 * @return
-	 */
-	public String addStudent(Student newStudent) {
-		return null;
 	}
 
 	// ----------------- Getter & Setter -----------------
