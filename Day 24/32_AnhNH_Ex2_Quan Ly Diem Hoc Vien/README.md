@@ -67,6 +67,7 @@ Phân tích bài toán
 
 > ## Interface của User
 
+
 ```java
 public interface IUserAction {
 
