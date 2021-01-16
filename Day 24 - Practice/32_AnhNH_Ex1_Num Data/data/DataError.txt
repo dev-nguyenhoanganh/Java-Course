@@ -1,0 +1,2 @@
+ID = 1: Tuổi chưa được nhập
+ID = 3: Tên chưa được nhập

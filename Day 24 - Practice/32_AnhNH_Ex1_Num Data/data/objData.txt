@@ -1,7 +1,7 @@
 <user>
 <ID>1</ID>
-<Name></Name>
-<Age>26s</Age>
+
+<Age></Age>
 <Phone>0123456789</Phone>
 </user>
 <user>
@@ -12,7 +12,7 @@
 </user>
 <user>
 <ID>3</ID>
-<Name>Anh01</Name>
+<Name></Name>
 <Age>26</Age>
 <Phone>0123456789</Phone>
 </user>

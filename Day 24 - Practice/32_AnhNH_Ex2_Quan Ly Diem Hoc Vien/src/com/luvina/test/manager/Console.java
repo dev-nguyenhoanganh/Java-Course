@@ -47,7 +47,7 @@ public class Console {
 	}
 
 	public static void main(String[] args) {
-
+		
 		Console main = new Console();
 		main.wellcomePage();
 		main.close();
