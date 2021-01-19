@@ -6,7 +6,7 @@
 </user>
 <user>
 <ID>2</ID>
-<Name>Hoang</Name>
+<Name></Name>
 <Age>20</Age>
 <Phone>0123456</Phone>
 </user>

@@ -4,8 +4,8 @@
 package com.luvina.gui;
 
 import java.awt.CardLayout;
-import java.awt.Color;
 import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -45,10 +45,14 @@ public class GUI extends JFrame implements ICommon {
 	public void addComponent() {
 		JLabel label = new JLabel();
 		label.setText("This is a Swing Frame");
-		label.setFont(new Font("Calibri", Font.PLAIN, 20));
-		label.setForeground(new Color(0x0));
-		label.setHorizontalAlignment(JLabel.CENTER);
-		label.setVerticalAlignment(JLabel.CENTER);
+		Font font = new Font("Calibri", Font.PLAIN, 20);
+		label.setFont(font);
+		FontMetrics fm = getFontMetrics(font);
+		
+//		label.setSize(GUI.WIDTH,GUI.HEIGHT);
+//		label.setForeground(new Color(0x0));
+//		label.setHorizontalAlignment(JLabel.CENTER);
+//		label.setVerticalAlignment(JLabel.CENTER);
 
 		add(label);
 	}
