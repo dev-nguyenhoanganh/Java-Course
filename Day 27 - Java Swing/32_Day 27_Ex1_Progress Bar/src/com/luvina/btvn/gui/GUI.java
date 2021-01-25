@@ -20,7 +20,7 @@ import com.luvina.btvn.gui.panel.ProgressPanel;
 @SuppressWarnings("serial")
 public class GUI extends JFrame implements ICommon {
 	public static final int WIDTH = 500;
-	public static final int HEIGHT = 200;
+	public static final int HEIGHT = 300;
 
 	private ProgressPanel progressPanel;
 
@@ -35,7 +35,7 @@ public class GUI extends JFrame implements ICommon {
 
 	@Override
 	public void init() {
-		setTitle("Progress Bar");
+		setTitle("JList");
 		setSize(WIDTH, HEIGHT);
 		setResizable(false);
 		setLocationRelativeTo(null);

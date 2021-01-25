@@ -6,6 +6,8 @@ package com.luvina.btvn.gui.panel;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JCheckBox;
 /**
@@ -16,6 +18,8 @@ import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 
 import com.luvina.btvn.gui.GUI;
+
+@SuppressWarnings("serial")
 public class CheckBoxPanel extends BasePanel {
 	
 	private static final int TOP_MARGIN = 35;
@@ -55,25 +59,56 @@ public class CheckBoxPanel extends BasePanel {
 		add(cbSad);
 
 		// lbResult
-		lbResult = new JLabel("Happy is checked");
+		lbResult = new JLabel("");
 		lbResult.setFont(fontNormal);
 		lbResult.setSize(fm.stringWidth("Happy is checked"), fm.getHeight() + TEXT_MARGIN);
 		lbResult.setLocation(GUI.WIDTH / 2 - lbResult.getWidth() / 2,
 				cbHappy.getY() + TOP_MARGIN + cbHappy.getHeight());
 		add(lbResult);
 
-		System.out.println("cbSad   : " + cbSad.getWidth());
-		System.out.println("cbHappy : " + cbHappy.getWidth());
 	}
 
 	@Override
 	public void addEvent() {
-		// TODO Auto-generated method stub
-
+		checkboxAction();
 	}
 
 	// ---------------------- Private Layer ----------------------
 
+	/**
+	 * 
+	 */
+	private void checkboxAction() {
+		cbHappy.setName("Happy");
+		cbSad.setName("Sad");
 
+		ActionListener action = new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String name = ((JCheckBox) e.getSource()).getName();
+				if ("Happy".equals(name)) {
+					if (cbHappy.isSelected()) {
+						lbResult.setText("Happy is checked");
+						cbSad.setSelected(false);
+					} else {
+						lbResult.setText("");
+					}
+				} else {
+					if ("Sad".equals(name)) {
+						if (cbSad.isSelected()) {
+							lbResult.setText("Sad is checked");
+							cbHappy.setSelected(false);
+						} else {
+							lbResult.setText("");
+						}
+					}
+				}
+
+			}
+		};
+		cbHappy.addActionListener(action);
+		cbSad.addActionListener(action);
+	}
 
 }

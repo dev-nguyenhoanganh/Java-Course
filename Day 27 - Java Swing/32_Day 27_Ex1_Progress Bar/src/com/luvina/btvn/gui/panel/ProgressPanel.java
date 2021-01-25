@@ -11,6 +11,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JProgressBar;
 
 import com.luvina.btvn.gui.GUI;
@@ -26,11 +27,13 @@ public class ProgressPanel extends BasePanel {
 
 	private JProgressBar progressBar;
 
-	private static int TOP_MARGIN = 20;
+	private static int TOP_MARGIN = 15;
 	private static int TEXT_MARGIN = 3 * 2;
 
 	private static int PROGRESS_BAR_WIDTH = 350;
 	private static int PROGRESS_BAR_HEIGHT = 50;
+
+	private static final String SEASON[] = new String[] { "Spring", "Autumn", "Winter", "Summer", "" };
 
 	@Override
 	public void init() {
@@ -49,7 +52,7 @@ public class ProgressPanel extends BasePanel {
 		FontMetrics fm = getFontMetrics(font);
 
 		// Title
-		title = new JLabel("Progress Bar");
+		title = new JLabel("JList");
 		int titleWidth = fm.stringWidth(title.getText());
 		title = (JLabel) setComponent(
 				title, 
@@ -72,7 +75,19 @@ public class ProgressPanel extends BasePanel {
 				PROGRESS_BAR_WIDTH, 
 				PROGRESS_BAR_HEIGHT, 
 				font);
+		
+		
+		Font fontNormal = new Font("Tahoma", Font.BOLD, 16);
 
+		JList<String> list = new JList<>(SEASON);
+		list.setFont(fontNormal);
+		list.setSize(list.getPreferredSize());
+		list.setLocation(GUI.WIDTH / 2 - list.getWidth() / 2, title.getY() + TOP_MARGIN + title.getHeight());
+		
+		add(list);
+
+		add(title);
+		
 		System.out.println("JLabel :");
 		System.out.println("X : " + title.getX() + "\tY : " + title.getY());
 		
@@ -108,7 +123,7 @@ public class ProgressPanel extends BasePanel {
 		com.setFont(font);
 		com.setSize(width, height);
 		com.setLocation(x, y);
-		add(com);
+//		add(com);
 
 		return com;
 	}

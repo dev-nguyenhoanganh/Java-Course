@@ -1,5 +1,5 @@
 /**
- * @Project_Name 32_Day 27_Ex2_Check Box
+ * @Project_Name 32_Day 27_Ex2_RGB Color
  */
 package com.luvina.btvn.gui.panel;
 
@@ -9,11 +9,12 @@ import com.luvina.btvn.gui.icommon.ICommon;
 
 /**
  * @author Hoang Anh
- * @since 19 thg 1, 2021
+ * @since 20 thg 1, 2021
  * @version 1.0
  */
 @SuppressWarnings("serial")
 public abstract class BasePanel extends JPanel implements ICommon {
+
 	public BasePanel() {
 		init();
 		addComponent();
